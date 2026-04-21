@@ -4,1681 +4,1024 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tahoe Rim Trail — June 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --pine: #1a2e1a;
-    --sage: #4a6741;
-    --sage-light: #7a9e6e;
-    --sage-pale: #c8dbbf;
-    --granite: #8a8070;
-    --granite-light: #d4cfc8;
-    --granite-pale: #f0ede8;
-    --lake: #2a6080;
-    --lake-light: #5a9ab8;
-    --lake-pale: #c0dce8;
-    --snow: #f8f6f2;
-    --ember: #c85a28;
-    --gold: #b8862a;
-    --text: #1e1c18;
-    --text-muted: #6a6258;
-    --radius: 4px;
-  }
+:root {
+  --pine-dark: #0f1a0f;
+  --pine: #1a2e1a;
+  --pine-mid: #243d22;
+  --sage: #4a6741;
+  --sage-light: #7a9e6e;
+  --sage-pale: #c8dbbf;
+  --granite: #8a8070;
+  --granite-light: #c4bfb8;
+  --granite-pale: #f0ede8;
+  --lake: #2a6080;
+  --lake-light: #4a8faa;
+  --lake-pale: #b8d8e8;
+  --snow: #f8f6f2;
+  --ember: #c85a28;
+  --gold: #c4923a;
+  --text: #1e1c18;
+  --text-muted: #6a6258;
+  --desolation: #2a5068;
+  --desolation-light: #3a7090;
+  --west: #4a6741;
+}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--pine);
-    color: var(--text);
-    min-height: 100vh;
-  }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--pine-dark);
+  color: var(--snow);
+  min-height: 100vh;
+}
 
-  /* HERO */
-  .hero {
-    background: var(--pine);
-    padding: 60px 40px 48px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(74,103,65,0.4) 0%, transparent 70%);
-  }
-  .hero-eyebrow {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--sage-pale);
-    margin-bottom: 16px;
-    opacity: 0;
-    animation: fadeUp .6s ease forwards .1s;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 6vw, 72px);
-    color: var(--snow);
-    line-height: 1.1;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeUp .7s ease forwards .2s;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--sage-pale);
-  }
-  .hero-sub {
-    font-size: 14px;
-    color: var(--granite-light);
-    letter-spacing: .04em;
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp .7s ease forwards .35s;
-  }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp .7s ease forwards .45s;
-  }
-  .hero-stat { text-align: center; }
-  .hero-stat-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: var(--snow);
-    display: block;
-  }
-  .hero-stat-label {
-    font-size: 11px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-  }
-  .hero-divider {
-    width: 1px;
-    height: 40px;
-    background: rgba(200,219,191,0.3);
-    align-self: center;
-  }
+/* HERO */
+.hero {
+  background: var(--pine-dark);
+  padding: 72px 40px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(200,219,191,0.12);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 80%, rgba(42,96,128,0.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 70% 70%, rgba(74,103,65,0.2) 0%, transparent 60%);
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sage-pale);
+  margin-bottom: 20px;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp .6s ease forwards .1s;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 300;
+  color: var(--snow);
+  line-height: 1.05;
+  margin-bottom: 12px;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp .7s ease forwards .2s;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--sage-pale);
+}
+.hero-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--granite-light);
+  letter-spacing: .1em;
+  margin-bottom: 48px;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp .7s ease forwards .3s;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp .7s ease forwards .4s;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid rgba(200,219,191,0.15);
+}
+.hero-stat {
+  flex: 1;
+  min-width: 120px;
+  padding: 20px 24px;
+  border-right: 1px solid rgba(200,219,191,0.15);
+  text-align: center;
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--snow);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hero-stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--granite-light);
+}
 
-  /* NAV */
-  nav {
-    background: rgba(26,46,26,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(74,103,65,0.4);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    padding: 0 32px;
-    display: flex;
-    gap: 4px;
-    overflow-x: auto;
-  }
-  .nav-btn {
-    background: none;
-    border: none;
-    color: var(--granite-light);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    padding: 14px 16px;
-    cursor: pointer;
-    white-space: nowrap;
-    border-bottom: 2px solid transparent;
-    transition: color .2s, border-color .2s;
-  }
-  .nav-btn:hover { color: var(--snow); }
-  .nav-btn.active { color: var(--sage-pale); border-bottom-color: var(--sage-light); }
+/* NAV TABS */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 0 40px;
+  background: var(--pine-dark);
+  border-bottom: 1px solid rgba(200,219,191,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-tab {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--granite-light);
+  padding: 18px 28px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.nav-tab:hover { color: var(--sage-pale); }
+.nav-tab.active {
+  color: var(--sage-pale);
+  border-bottom-color: var(--sage-light);
+}
 
-  /* SECTIONS */
-  .section { display: none; }
-  .section.active { display: block; }
+/* SECTIONS */
+.section { display: none; padding: 48px 40px; max-width: 900px; margin: 0 auto; }
+.section.active { display: block; }
 
-  .section-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 48px 24px;
-  }
+/* SECTION HEADER */
+.section-header {
+  margin-bottom: 36px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--snow);
+  margin-bottom: 8px;
+}
+.section-desc {
+  font-size: 13px;
+  color: var(--granite-light);
+  line-height: 1.6;
+}
 
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: var(--snow);
-    margin-bottom: 8px;
-  }
-  .section-subtitle {
-    font-size: 13px;
-    color: var(--granite-light);
-    margin-bottom: 36px;
-    letter-spacing: .02em;
-  }
+/* ITINERARY */
+.itinerary { display: flex; flex-direction: column; gap: 2px; }
 
-  /* OVERVIEW CARDS */
-  .overview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    margin-bottom: 36px;
-  }
-  .overview-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(200,219,191,0.15);
-    border-radius: 8px;
-    padding: 20px;
-  }
-  .overview-card-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 8px;
-  }
-  .overview-card-val {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    color: var(--snow);
-    line-height: 1.2;
-  }
-  .overview-card-note {
-    font-size: 11px;
-    color: var(--granite-light);
-    margin-top: 4px;
-  }
+.day-card {
+  background: var(--pine-mid);
+  border: 1px solid rgba(200,219,191,0.1);
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.day-card:hover { border-color: rgba(200,219,191,0.25); }
 
-  /* ALERT BANNER */
-  .alert {
-    background: rgba(184,134,42,0.15);
-    border: 1px solid rgba(184,134,42,0.4);
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-bottom: 20px;
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
-  .alert-text { font-size: 13px; color: var(--granite-pale); line-height: 1.6; }
-  .alert-text strong { color: var(--snow); }
-  .alert.info { background: rgba(42,96,128,0.15); border-color: rgba(42,96,128,0.4); }
-  .alert.warn { background: rgba(200,90,40,0.12); border-color: rgba(200,90,40,0.4); }
+.day-card.desolation { border-left: 3px solid var(--desolation-light); }
+.day-card.west { border-left: 3px solid var(--sage-light); }
 
-  /* ITINERARY */
-  .day-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(200,219,191,0.1);
-    border-radius: 8px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    transition: border-color .2s;
-  }
-  .day-card:hover { border-color: rgba(200,219,191,0.25); }
-  .day-header {
-    display: grid;
-    grid-template-columns: 56px 1fr auto;
-    align-items: center;
-    padding: 16px 20px;
-    cursor: pointer;
-    gap: 16px;
-  }
-  .day-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    color: rgba(200,219,191,0.3);
-    line-height: 1;
-    text-align: center;
-  }
-  .day-info { min-width: 0; }
-  .day-date {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 3px;
-  }
-  .day-title {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--snow);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .day-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-    flex-shrink: 0;
-  }
-  .day-miles {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: var(--sage-pale);
-  }
-  .day-miles-label {
-    font-size: 10px;
-    color: var(--granite-light);
-    letter-spacing: .05em;
-  }
-  .tag {
-    display: inline-block;
-    border-radius: 3px;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    padding: 2px 7px;
-  }
-  .tag-meet { background: rgba(42,96,128,0.3); color: var(--lake-pale); border: 1px solid rgba(42,96,128,0.5); }
-  .tag-resupply { background: rgba(74,103,65,0.3); color: var(--sage-pale); border: 1px solid rgba(74,103,65,0.5); }
-  .tag-rest { background: rgba(184,134,42,0.2); color: #e8c870; border: 1px solid rgba(184,134,42,0.4); }
-  .tag-desolation { background: rgba(200,90,40,0.2); color: #e8a888; border: 1px solid rgba(200,90,40,0.4); }
-  .tag-snow { background: rgba(90,154,184,0.2); color: #a8d0e8; border: 1px solid rgba(90,154,184,0.4); }
+.day-header {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  padding: 18px 24px;
+  cursor: pointer;
+  gap: 20px;
+}
+.day-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--granite);
+  line-height: 1;
+}
+.day-num span {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: .1em;
+  display: block;
+  color: var(--granite);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.day-main { min-width: 0; }
+.day-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 4px;
+}
+.day-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.day-meta-item {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .08em;
+  color: var(--granite-light);
+}
+.day-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+.day-badge.desolation { background: rgba(42,96,128,0.3); color: var(--lake-pale); border: 1px solid rgba(74,143,170,0.3); }
+.day-badge.west { background: rgba(74,103,65,0.3); color: var(--sage-pale); border: 1px solid rgba(122,158,110,0.3); }
+.day-badge.friend { background: rgba(196,146,58,0.2); color: #e8c878; border: 1px solid rgba(196,146,58,0.3); }
 
-  .day-body {
-    display: none;
-    padding: 0 20px 20px;
-    border-top: 1px solid rgba(200,219,191,0.08);
-    margin-top: 0;
-  }
-  .day-body.open { display: block; }
-  .day-body-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 16px;
-  }
-  @media (max-width: 600px) { .day-body-inner { grid-template-columns: 1fr; } }
-  .day-section-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 8px;
-  }
-  .day-notes {
-    font-size: 13px;
-    color: var(--granite-pale);
-    line-height: 1.7;
-  }
-  .day-notes li { margin-left: 16px; margin-bottom: 4px; }
-  .day-map-placeholder {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(200,219,191,0.1);
-    border-radius: 6px;
-    padding: 16px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    align-items: center;
-    justify-content: center;
-    min-height: 120px;
-  }
-  .day-map-coords {
-    font-size: 11px;
-    color: var(--granite);
-    font-family: monospace;
-  }
-  .map-link {
-    display: inline-block;
-    font-size: 11px;
-    color: var(--lake-light);
-    text-decoration: none;
-    border: 1px solid rgba(90,154,184,0.3);
-    border-radius: 3px;
-    padding: 4px 10px;
-    margin-top: 4px;
-    transition: background .2s;
-  }
-  .map-link:hover { background: rgba(90,154,184,0.1); }
+.day-body {
+  display: none;
+  padding: 0 24px 20px;
+  border-top: 1px solid rgba(200,219,191,0.08);
+}
+.day-body.open { display: block; }
 
-  /* WATER CARRY INDICATOR */
-  .water-bar-wrap { margin-top: 8px; }
-  .water-label { font-size: 11px; color: var(--granite-light); margin-bottom: 4px; }
-  .water-bar-bg {
-    height: 4px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .water-bar-fill {
-    height: 100%;
-    border-radius: 2px;
-    background: var(--lake-light);
-  }
+.day-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.day-detail-block { }
+.day-detail-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--granite);
+  margin-bottom: 6px;
+}
+.day-detail-val {
+  font-size: 13px;
+  color: var(--granite-light);
+  line-height: 1.5;
+}
+.day-notes {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(200,219,191,0.08);
+}
+.day-note {
+  font-size: 12px;
+  color: var(--granite-light);
+  padding: 3px 0;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+.day-note::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--granite);
+  font-size: 10px;
+}
+.day-note.highlight { color: var(--sage-pale); }
+.day-note.warning { color: #e8c878; }
 
-  /* MEET-UP SECTION */
-  .meetup-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .meetup-card {
-    background: rgba(42,96,128,0.12);
-    border: 1px solid rgba(42,96,128,0.35);
-    border-radius: 8px;
-    padding: 24px;
-  }
-  .meetup-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    color: rgba(90,154,184,0.25);
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .meetup-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: var(--snow);
-    margin-bottom: 6px;
-  }
-  .meetup-when {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--lake-light);
-    margin-bottom: 14px;
-  }
-  .meetup-detail {
-    font-size: 13px;
-    color: var(--granite-pale);
-    line-height: 1.7;
-    margin-bottom: 6px;
-  }
-  .meetup-detail strong { color: var(--snow); font-weight: 500; }
-  .meetup-section { margin-bottom: 20px; }
-  .meetup-section-title {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin-bottom: 10px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid rgba(200,219,191,0.1);
-  }
+/* LEGEND */
+.legend {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: var(--granite-light);
+}
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+}
+.legend-dot.desolation { background: var(--desolation-light); }
+.legend-dot.west { background: var(--sage-light); }
 
-  /* GEAR LIST */
-  .gear-category { margin-bottom: 32px; }
-  .gear-cat-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-    cursor: pointer;
-  }
-  .gear-cat-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    color: var(--snow);
-  }
-  .gear-cat-count {
-    font-size: 11px;
-    color: var(--granite);
-    background: rgba(255,255,255,0.06);
-    border-radius: 10px;
-    padding: 2px 8px;
-  }
-  .gear-items { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  @media (max-width: 500px) { .gear-items { grid-template-columns: 1fr; } }
-  .gear-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 12px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(200,219,191,0.08);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background .15s;
-    user-select: none;
-  }
-  .gear-item:hover { background: rgba(255,255,255,0.06); }
-  .gear-item.checked { background: rgba(74,103,65,0.15); border-color: rgba(74,103,65,0.3); }
-  .gear-checkbox {
-    width: 16px;
-    height: 16px;
-    border: 1.5px solid rgba(200,219,191,0.3);
-    border-radius: 3px;
-    flex-shrink: 0;
-    margin-top: 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background .15s, border-color .15s;
-  }
-  .gear-item.checked .gear-checkbox {
-    background: var(--sage);
-    border-color: var(--sage);
-  }
-  .gear-checkbox-tick { color: white; font-size: 10px; display: none; }
-  .gear-item.checked .gear-checkbox-tick { display: block; }
-  .gear-item-content { flex: 1; min-width: 0; }
-  .gear-item-name { font-size: 13px; color: var(--snow); font-weight: 400; }
-  .gear-item.checked .gear-item-name { color: var(--granite); text-decoration: line-through; }
-  .gear-item-note { font-size: 11px; color: var(--granite); margin-top: 2px; line-height: 1.4; }
-  .gear-badge { font-size: 10px; padding: 1px 5px; border-radius: 2px; margin-left: 5px; vertical-align: middle; }
-  .gear-badge-buy { background: rgba(200,90,40,0.25); color: #e8a888; }
-  .gear-badge-june { background: rgba(90,154,184,0.2); color: #a8d0e8; }
-  .gear-badge-req { background: rgba(184,134,42,0.2); color: #e8c870; }
-  .gear-progress { margin-bottom: 24px; }
-  .gear-progress-bar-bg { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; }
-  .gear-progress-bar-fill { height: 100%; background: var(--sage-light); border-radius: 2px; transition: width .3s; }
-  .gear-progress-label { font-size: 12px; color: var(--granite-light); margin-bottom: 8px; }
-  .gear-reset {
-    font-size: 11px;
-    color: var(--granite);
-    background: none;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 3px;
-    padding: 4px 10px;
-    cursor: pointer;
-    margin-top: 16px;
-    transition: color .2s;
-  }
-  .gear-reset:hover { color: var(--snow); }
+/* PERMIT SECTION */
+.permit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.permit-card {
+  background: var(--pine-mid);
+  border: 1px solid rgba(200,219,191,0.12);
+  padding: 24px;
+}
+.permit-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(200,219,191,0.1);
+}
+.permit-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(200,219,191,0.06);
+  gap: 12px;
+}
+.permit-row:last-child { border-bottom: none; }
+.permit-key {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--granite);
+  flex-shrink: 0;
+}
+.permit-val {
+  font-size: 12px;
+  color: var(--granite-light);
+  text-align: right;
+  line-height: 1.4;
+}
+.permit-val.highlight { color: var(--sage-pale); }
+.permit-val.warning { color: #e8c878; }
 
-  /* LOGISTICS */
-  .logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-  @media (max-width: 600px) { .logistics-grid { grid-template-columns: 1fr; } }
-  .logistics-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(200,219,191,0.1);
-    border-radius: 8px;
-    padding: 20px;
-  }
-  .logistics-card-icon { font-size: 20px; margin-bottom: 10px; }
-  .logistics-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: var(--snow);
-    margin-bottom: 10px;
-  }
-  .logistics-card p, .logistics-card li {
-    font-size: 13px;
-    color: var(--granite-pale);
-    line-height: 1.7;
-    margin-bottom: 4px;
-  }
-  .logistics-card li { margin-left: 16px; }
-  .logistics-card a { color: var(--lake-light); text-decoration: none; }
-  .logistics-card a:hover { text-decoration: underline; }
+.permit-alert {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: rgba(196,146,58,0.1);
+  border: 1px solid rgba(196,146,58,0.25);
+  border-left: 3px solid var(--gold);
+}
+.permit-alert-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #e8c878;
+  margin-bottom: 6px;
+}
+.permit-alert-text {
+  font-size: 12px;
+  color: var(--granite-light);
+  line-height: 1.6;
+}
 
-  /* PERMITS */
-  .permit-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(200,219,191,0.1);
-    border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 12px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 20px;
-    align-items: start;
-  }
-  .permit-status {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-top: 4px;
-  }
-  .permit-status.todo { background: rgba(200,90,40,0.7); }
-  .permit-status.done { background: var(--sage-light); }
-  .permit-info h3 { font-size: 15px; font-weight: 500; color: var(--snow); margin-bottom: 4px; }
-  .permit-info p { font-size: 13px; color: var(--granite-pale); line-height: 1.6; }
-  .permit-info a { color: var(--lake-light); text-decoration: none; }
-  .permit-cost {
-    font-size: 13px;
-    color: var(--granite-light);
-    white-space: nowrap;
-    text-align: right;
-  }
-  .permit-cost strong { color: var(--snow); display: block; font-size: 15px; }
+/* FRIENDS SECTION */
+.friends-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.friend-card {
+  background: var(--pine-mid);
+  border: 1px solid rgba(200,219,191,0.12);
+  padding: 24px;
+}
+.friend-card.friend-a { border-top: 3px solid var(--desolation-light); }
+.friend-card.friend-b { border-top: 3px solid var(--sage-light); }
+.friend-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--snow);
+  margin-bottom: 4px;
+}
+.friend-days {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: var(--granite-light);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(200,219,191,0.1);
+}
+.friend-detail {
+  padding: 6px 0;
+  font-size: 12px;
+  color: var(--granite-light);
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(200,219,191,0.06);
+}
+.friend-detail:last-child { border-bottom: none; }
+.friend-detail strong {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--granite);
+  display: block;
+  margin-bottom: 2px;
+}
 
-  /* CONTACTS TABLE */
-  .contacts-note {
-    font-size: 13px;
-    color: var(--granite-pale);
-    line-height: 1.7;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(200,219,191,0.1);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  .contact-row {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(200,219,191,0.08);
-    font-size: 13px;
-  }
-  .contact-row:last-child { border-bottom: none; }
-  .contact-label { color: var(--sage-light); font-weight: 500; }
-  .contact-val { color: var(--granite-pale); }
-  .contact-val a { color: var(--lake-light); text-decoration: none; }
+/* GEAR CHECKLIST */
+.gear-progress-bar-wrap {
+  background: rgba(200,219,191,0.1);
+  height: 2px;
+  margin-bottom: 24px;
+}
+.gear-progress-bar {
+  height: 100%;
+  background: var(--sage-light);
+  transition: width .3s ease;
+}
+.gear-progress-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: var(--granite-light);
+  margin-bottom: 8px;
+}
+.gear-category { margin-bottom: 28px; }
+.gear-cat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(200,219,191,0.12);
+  margin-bottom: 8px;
+}
+.gear-cat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--snow);
+}
+.gear-cat-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .1em;
+  color: var(--granite);
+}
+.gear-items { display: flex; flex-direction: column; gap: 2px; }
+.gear-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: var(--pine-mid);
+  cursor: pointer;
+  transition: background .15s;
+  border: 1px solid transparent;
+}
+.gear-item:hover { background: rgba(74,103,65,0.2); }
+.gear-item.checked {
+  background: rgba(74,103,65,0.15);
+  border-color: rgba(122,158,110,0.2);
+}
+.gear-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--granite);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+}
+.gear-item.checked .gear-checkbox {
+  background: var(--sage);
+  border-color: var(--sage-light);
+}
+.gear-checkbox-tick {
+  font-size: 10px;
+  color: var(--snow);
+  opacity: 0;
+  transition: opacity .15s;
+}
+.gear-item.checked .gear-checkbox-tick { opacity: 1; }
+.gear-item-content { min-width: 0; flex: 1; }
+.gear-item-name {
+  font-size: 13px;
+  color: var(--granite-light);
+  line-height: 1.3;
+}
+.gear-item.checked .gear-item-name {
+  color: var(--granite);
+  text-decoration: line-through;
+  text-decoration-color: var(--sage);
+}
+.gear-item-note {
+  font-size: 11px;
+  color: var(--granite);
+  margin-top: 2px;
+  font-style: italic;
+}
+.gear-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  font-weight: 300;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  flex-shrink: 0;
+}
+.gear-badge.essential { background: rgba(200,90,40,0.2); color: #e8906a; border: 1px solid rgba(200,90,40,0.3); }
+.gear-badge.new { background: rgba(196,146,58,0.2); color: #e8c878; border: 1px solid rgba(196,146,58,0.3); }
+.gear-reset-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--granite);
+  background: none;
+  border: 1px solid rgba(200,219,191,0.15);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all .2s;
+  margin-bottom: 24px;
+}
+.gear-reset-btn:hover { color: var(--granite-light); border-color: rgba(200,219,191,0.3); }
 
-  /* FOOTER */
-  footer {
-    background: rgba(0,0,0,0.3);
-    border-top: 1px solid rgba(200,219,191,0.1);
-    padding: 24px;
-    text-align: center;
-    font-size: 12px;
-    color: var(--granite);
-  }
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* SCROLLBAR */
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); }
-  ::-webkit-scrollbar-thumb { background: rgba(200,219,191,0.2); border-radius: 3px; }
-
-  /* SECTION BG */
-  .section { background: var(--pine); min-height: calc(100vh - 200px); }
-
-  hr.divider {
-    border: none;
-    border-top: 1px solid rgba(200,219,191,0.1);
-    margin: 32px 0;
-  }
-
-  .inline-link {
-    color: var(--lake-light);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(90,154,184,0.3);
-  }
-  .inline-link:hover { border-bottom-color: var(--lake-light); }
-
-  .section-section-title {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--sage-light);
-    margin: 32px 0 14px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(200,219,191,0.12);
-  }
-
-  .chevron { transition: transform .25s; display: inline-block; color: var(--granite); font-size: 12px; }
-  .chevron.open { transform: rotate(180deg); }
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .hero { padding: 48px 20px 40px; }
+  .section { padding: 32px 20px; }
+  .hero-stats { flex-direction: column; gap: 0; }
+  .hero-stat { border-right: none; border-bottom: 1px solid rgba(200,219,191,0.15); }
+  .hero-stat:last-child { border-bottom: none; }
+  .day-header { grid-template-columns: 60px 1fr; }
+  .day-badge { display: none; }
+  .day-details { grid-template-columns: 1fr; }
+  .permit-grid { grid-template-columns: 1fr; }
+  .friends-grid { grid-template-columns: 1fr; }
+  .nav-tab { padding: 16px 14px; font-size: 9px; }
+}
 </style>
 </head>
 <body>
 
 <div class="hero">
-  <div class="hero-eyebrow">Christina's Trip · Summer 2026</div>
-  <h1>Tahoe <em>Rim Trail</em></h1>
-  <div class="hero-sub">June 9 – 23, 2026 &nbsp;·&nbsp; 165 Miles &nbsp;·&nbsp; Clockwise from Tahoe City</div>
+  <div class="hero-eyebrow">Tahoe Rim Trail &nbsp;·&nbsp; West Side</div>
+  <h1>June <em>2026</em></h1>
+  <div class="hero-sub">Echo Lake &nbsp;→&nbsp; Desolation Wilderness &nbsp;→&nbsp; Barker Pass &nbsp;→&nbsp; Tahoe City</div>
   <div class="hero-stats">
     <div class="hero-stat">
-      <span class="hero-stat-val">165</span>
-      <span class="hero-stat-label">Miles</span>
+      <div class="hero-stat-val">7</div>
+      <div class="hero-stat-label">Days</div>
     </div>
-    <div class="hero-divider"></div>
     <div class="hero-stat">
-      <span class="hero-stat-val">15</span>
-      <span class="hero-stat-label">Days</span>
+      <div class="hero-stat-val">~49</div>
+      <div class="hero-stat-label">Miles</div>
     </div>
-    <div class="hero-divider"></div>
     <div class="hero-stat">
-      <span class="hero-stat-val">28k</span>
-      <span class="hero-stat-label">Ft Gain</span>
+      <div class="hero-stat-val">Jun 14</div>
+      <div class="hero-stat-label">Start</div>
     </div>
-    <div class="hero-divider"></div>
     <div class="hero-stat">
-      <span class="hero-stat-val">2</span>
-      <span class="hero-stat-label">Friend Weekends</span>
+      <div class="hero-stat-val">Jun 20</div>
+      <div class="hero-stat-label">Finish</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">3</div>
+      <div class="hero-stat-label">Hikers</div>
     </div>
   </div>
 </div>
 
-<nav>
-  <button class="nav-btn active" onclick="showSection('overview')">Overview</button>
-  <button class="nav-btn" onclick="showSection('itinerary')">Itinerary</button>
-  <button class="nav-btn" onclick="showSection('meetups')">Meet-ups</button>
-  <button class="nav-btn" onclick="showSection('gear')">Gear</button>
-  <button class="nav-btn" onclick="showSection('permits')">Permits</button>
-  <button class="nav-btn" onclick="showSection('logistics')">Logistics</button>
+<nav class="nav">
+  <button class="nav-tab active" onclick="showTab('itinerary')">Itinerary</button>
+  <button class="nav-tab" onclick="showTab('permits')">Permits</button>
+  <button class="nav-tab" onclick="showTab('friends')">Friends</button>
+  <button class="nav-tab" onclick="showTab('gear')">Gear</button>
 </nav>
 
-<!-- OVERVIEW -->
-<div id="overview" class="section active">
-  <div class="section-wrap">
-    <div class="section-title">Trip Overview</div>
-    <div class="section-subtitle">Everything at a glance</div>
-
-    <div class="overview-grid">
-      <div class="overview-card">
-        <div class="overview-card-label">Start</div>
-        <div class="overview-card-val">June 9</div>
-        <div class="overview-card-note">64 Acres TH, Tahoe City</div>
-      </div>
-      <div class="overview-card">
-        <div class="overview-card-label">Finish</div>
-        <div class="overview-card-val">June 23</div>
-        <div class="overview-card-note">64 Acres TH, Tahoe City</div>
-      </div>
-      <div class="overview-card">
-        <div class="overview-card-label">Daily Average</div>
-        <div class="overview-card-val">~11 mi</div>
-        <div class="overview-card-note">Relaxed pace, 1 rest day</div>
-      </div>
-      <div class="overview-card">
-        <div class="overview-card-label">Resupply Stops</div>
-        <div class="overview-card-val">2 stops</div>
-        <div class="overview-card-note">South Lake Tahoe, Tahoe City</div>
-      </div>
-      <div class="overview-card">
-        <div class="overview-card-label">Elevation</div>
-        <div class="overview-card-val">6,300–10,338</div>
-        <div class="overview-card-note">ft. High point: Relay Peak</div>
-      </div>
-      <div class="overview-card">
-        <div class="overview-card-label">Snow Year</div>
-        <div class="overview-card-val">Low — 46%</div>
-        <div class="overview-card-note">Northern Sierra snowpack of avg</div>
-      </div>
-    </div>
-
-    <div class="alert">
-      <div class="alert-icon">⚠️</div>
-      <div class="alert-text"><strong>Desolation Wilderness Permit:</strong> Book immediately at <a class="inline-link" href="https://www.recreation.gov/permits/233261" target="_blank">recreation.gov/permits/233261</a> — only 10 TRT thru-hiker slots per night. Entry date: June 18. Exit: Meeks Bay, June 19.</div>
-    </div>
-    <div class="alert info">
-      <div class="alert-icon">💧</div>
-      <div class="alert-text"><strong>East Side Water Warning (Days 2–6):</strong> Longest carry is ~17 miles between Watson Lake and Gray Lake. Carry 4–5L capacity. Check FarOut app for current source status before each day.</div>
-    </div>
-    <div class="alert warn">
-      <div class="alert-icon">🐻</div>
-      <div class="alert-text"><strong>Bear Canister Required:</strong> As of Jan 2024, bear canisters are required for the entire TRT system — not just Desolation Wilderness. BV500 or similar. TRTA rents them: (775) 298-4485.</div>
-    </div>
-
-    <hr class="divider">
-    <div class="section-section-title">The Four Sections</div>
-
-    <div style="display:grid; gap:10px;">
-      <div class="meetup-card" style="background:rgba(255,255,255,0.04); border-color:rgba(200,219,191,0.15);">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
-          <div>
-            <div style="font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-light);margin-bottom:4px;">Section 1 · Days 1–4</div>
-            <div style="font-family:'Playfair Display',serif;font-size:17px;color:var(--snow);">Tahoe City → Spooner Summit</div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--sage-pale);">~52 mi</div>
-            <div style="font-size:11px;color:var(--granite-light);">Jun 9–12</div>
-          </div>
-        </div>
-        <div style="font-size:13px;color:var(--granite-pale);margin-top:10px;line-height:1.7;">Solo start. North shore ridge, Watson Lake, Mt. Rose, Relay Peak (highest point on trail), Nevada east side. Drier terrain — plan water carries carefully. <strong style="color:var(--lake-pale);">Friends join at Spooner Summit, Fri June 13.</strong></div>
-      </div>
-
-      <div class="meetup-card" style="background:rgba(255,255,255,0.04); border-color:rgba(200,219,191,0.15);">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
-          <div>
-            <div style="font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-light);margin-bottom:4px;">Section 2 · Days 4–8</div>
-            <div style="font-family:'Playfair Display',serif;font-size:17px;color:var(--snow);">Spooner Summit → Echo Lake</div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--sage-pale);">~55 mi</div>
-            <div style="font-size:11px;color:var(--granite-light);">Jun 13–17</div>
-          </div>
-        </div>
-        <div style="font-size:13px;color:var(--granite-pale);margin-top:10px;line-height:1.7;">Kingsbury, Freel Peak, Star Lake — the most remote and rugged stretch. Friends hike Sat–Sun, exit at Kingsbury South Sun Jun 14. Solo Jun 15–17. Rest day South Lake Tahoe Wed Jun 17.</div>
-      </div>
-
-      <div class="meetup-card" style="background:rgba(255,255,255,0.04); border-color:rgba(200,219,191,0.15);">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
-          <div>
-            <div style="font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-light);margin-bottom:4px;">Section 3 · Days 10–11</div>
-            <div style="font-family:'Playfair Display',serif;font-size:17px;color:var(--snow);">Echo Lake → Barker Pass</div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--sage-pale);">~25 mi</div>
-            <div style="font-size:11px;color:var(--granite-light);">Jun 18–19</div>
-          </div>
-        </div>
-        <div style="font-size:13px;color:var(--granite-pale);margin-top:10px;line-height:1.7;">Solo through Desolation Wilderness — the crown jewel. Entry Jun 18, camp at Dicks Lake or Gilmore, exit over Dicks Pass Jun 19. <strong style="color:var(--lake-pale);">Friends meet at Barker Pass, Fri June 19 (Juneteenth).</strong></div>
-      </div>
-
-      <div class="meetup-card" style="background:rgba(255,255,255,0.04); border-color:rgba(200,219,191,0.15);">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
-          <div>
-            <div style="font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-light);margin-bottom:4px;">Section 4 · Days 12–15</div>
-            <div style="font-family:'Playfair Display',serif;font-size:17px;color:var(--snow);">Barker Pass → Tahoe City</div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-family:'Playfair Display',serif;font-size:22px;color:var(--sage-pale);">~38 mi</div>
-            <div style="font-size:11px;color:var(--granite-light);">Jun 19–23</div>
-          </div>
-        </div>
-        <div style="font-size:13px;color:var(--granite-pale);margin-top:10px;line-height:1.7;">Five Lakes, Twin Peaks, Brockway Summit, north shore. Friends exit at Brockway Summit (Hwy 267) on Jun 21 Sunday evening. Christina finishes solo, loops into Tahoe City Jun 23.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- ITINERARY -->
-<div id="itinerary" class="section">
-  <div class="section-wrap">
-    <div class="section-title">Daily Itinerary</div>
-    <div class="section-subtitle">Click any day to expand route notes and map link</div>
+<div class="section active" id="tab-itinerary">
+  <div class="section-header">
+    <div class="section-title">Day by Day</div>
+    <div class="section-desc">7 days, Echo Lake to Tahoe City. Click any day to expand details.</div>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot desolation"></div> Desolation Wilderness</div>
+    <div class="legend-item"><div class="legend-dot west"></div> Barker Pass → Tahoe City</div>
+  </div>
+  <div class="itinerary" id="itinerary-container"></div>
+</div>
 
-    <div id="days-container"></div>
+<!-- PERMITS -->
+<div class="section" id="tab-permits">
+  <div class="section-header">
+    <div class="section-title">Permits & Logistics</div>
+    <div class="section-desc">All permit details and key logistics for the trip.</div>
+  </div>
+  <div class="permit-grid">
+    <div class="permit-card">
+      <div class="permit-card-title">Desolation Wilderness Permit</div>
+      <div class="permit-row"><span class="permit-key">Type</span><span class="permit-val">Standard Overnight</span></div>
+      <div class="permit-row"><span class="permit-key">Entry Date</span><span class="permit-val highlight">June 14, 2026</span></div>
+      <div class="permit-row"><span class="permit-key">Entry Trailhead</span><span class="permit-val">Echo Lake</span></div>
+      <div class="permit-row"><span class="permit-key">Exit Trailhead</span><span class="permit-val">Richardson Lake</span></div>
+      <div class="permit-row"><span class="permit-key">First Night Zone</span><span class="permit-val highlight">Zone 29 — Gilmore Lake</span></div>
+      <div class="permit-row"><span class="permit-key">Party Size</span><span class="permit-val">3 people</span></div>
+      <div class="permit-row"><span class="permit-key">Nights in DW</span><span class="permit-val">3 nights (Jun 14–16)</span></div>
+      <div class="permit-row"><span class="permit-key">Book Via</span><span class="permit-val">recreation.gov #233261</span></div>
+    </div>
+    <div class="permit-card">
+      <div class="permit-card-title">Key Rules</div>
+      <div class="permit-row"><span class="permit-key">Camping</span><span class="permit-val">Min 100 ft from water, 300 ft from trail corridor</span></div>
+      <div class="permit-row"><span class="permit-key">Campfires</span><span class="permit-val warning">Prohibited at all times</span></div>
+      <div class="permit-row"><span class="permit-key">Bear Canister</span><span class="permit-val warning">Required in Desolation</span></div>
+      <div class="permit-row"><span class="permit-key">Dogs</span><span class="permit-val">Allowed on leash</span></div>
+      <div class="permit-row"><span class="permit-key">Zone 33 Aloha</span><span class="permit-val warning">No camping</span></div>
+      <div class="permit-row"><span class="permit-key">Campfire Permit</span><span class="permit-val">CA permit required for stove (free) — readyforwildfire.org</span></div>
+      <div class="permit-row"><span class="permit-key">Barker→TC</span><span class="permit-val">No permit required, camp within 300 ft of trail</span></div>
+    </div>
+  </div>
+  <div class="permit-alert">
+    <div class="permit-alert-title">Shuttle Logistics</div>
+    <div class="permit-alert-text">One-way trip — you start at Echo Lake and finish at Tahoe City. Arrange a car shuttle in advance: leave a car at the Tahoe City trailhead (64 Acres Park / Hwy 89 lot), or use WannaRideTahoe.com for a paid shuttle from Barker Pass or Echo Lake. Uber also operates in both Tahoe City and South Lake Tahoe.</div>
   </div>
 </div>
 
-<!-- MEETUPS -->
-<div id="meetups" class="section">
-  <div class="section-wrap">
-    <div class="section-title">Friend Meet-ups</div>
-    <div class="section-subtitle">Share this page — everything your crew needs to join</div>
-
-    <div class="alert info">
-      <div class="alert-icon">📍</div>
-      <div class="alert-text">Meetup 1 is accessible via Hwy 50 East (Spooner Summit). Meetup 2 is via Hwy 267 → Hwy 89 South (Barker Pass). No shuttles needed — friends drive directly and park. Allow 3.5–4 hrs from SF.</div>
+<!-- FRIENDS -->
+<div class="section" id="tab-friends">
+  <div class="section-header">
+    <div class="section-title">Who's Joining</div>
+    <div class="section-desc">Two friends join for different sections of the trip.</div>
+  </div>
+  <div class="friends-grid">
+    <div class="friend-card friend-a">
+      <div class="friend-name">Friend A</div>
+      <div class="friend-days">4 Days &nbsp;·&nbsp; Desolation Wilderness</div>
+      <div class="friend-detail"><strong>Dates</strong>June 14–17</div>
+      <div class="friend-detail"><strong>Joins At</strong>Echo Lake Trailhead</div>
+      <div class="friend-detail"><strong>Exits At</strong>Barker Pass Trailhead</div>
+      <div class="friend-detail"><strong>Section</strong>Echo Lake → Gilmore → Dicks Lake → Fontanillis → Barker Pass</div>
+      <div class="friend-detail"><strong>Miles</strong>~32 miles over 4 days</div>
+      <div class="friend-detail"><strong>Terrain</strong>Granite, alpine lakes, Dicks Pass (9,377 ft), Desolation Wilderness</div>
+      <div class="friend-detail"><strong>Permit</strong>Covered under 3-person Desolation permit</div>
     </div>
-
-    <div style="margin-top:24px;">
-
-      <!-- MEETUP 1 -->
-      <div class="meetup-card" style="margin-bottom:16px;">
-        <div class="meetup-num">01</div>
-        <h3>Spooner Summit Trailhead</h3>
-        <div class="meetup-when">Saturday June 13 — Sunday June 14</div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">Getting There</div>
-          <div class="meetup-detail"><strong>Address:</strong> Spooner Summit Trailhead, Hwy 50 & Hwy 28, Glenbrook, NV 89413</div>
-          <div class="meetup-detail"><strong>From Santa Rosa:</strong> ~3 hrs 45 min via Hwy 12 East → I-80 East → Hwy 267 → Hwy 28 (~210 miles). Straightforward drive through Sacramento and over the Sierra.</div>
-          <div class="meetup-detail"><strong>From Truckee:</strong> ~45 min via Hwy 267 South → Hwy 28 East along the north shore → Hwy 50 East to Spooner Summit (~30 miles). Easy.</div>
-          <div class="meetup-detail"><strong>From SF Bay Area:</strong> ~3.5 hrs via I-80 East to Hwy 267 or Hwy 50 East.</div>
-          <div class="meetup-detail"><strong>Parking:</strong> Free, day-use lot at the summit. Arrive by midday Saturday.</div>
-          <div class="meetup-detail"><strong>Google Maps:</strong> <a class="inline-link" href="https://maps.google.com/?q=39.103607,-119.895188" target="_blank">39.103607, -119.895188 ↗</a></div>
-        </div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">What to Bring</div>
-          <div class="meetup-detail">Pack for 2 nights / 2 days. ~26 miles total over Sat–Sun. Terrain: exposed Nevada ridgeline, Kingsbury area. Elevation ~8,000–9,800 ft.</div>
-          <div class="meetup-detail" style="margin-top:6px;">Need: bear canister, camping permit (dispersed, no fee outside Desolation), trekking poles, microspikes (possible patches), sun protection, layers for cold nights.</div>
-        </div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">Exit Plan</div>
-          <div class="meetup-detail">Friends exit Sunday June 14 at <strong>Kingsbury South Trailhead</strong> or hitch/rideshare back to Spooner (cars parked there). ~5 mi walk to Kingsbury North if doing a one-way. Or arrange a car shuttle between Spooner and Kingsbury South before the weekend.</div>
-        </div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">Nearby Lodging Option</div>
-          <div class="meetup-detail">South Lake Tahoe is 20 min south — hotels, Airbnbs, casinos for anyone wanting a bed Friday night before hitting trail Saturday morning.</div>
-        </div>
-      </div>
-
-      <!-- MEETUP 2 -->
-      <div class="meetup-card">
-        <div class="meetup-num">02</div>
-        <h3>Barker Pass Trailhead</h3>
-        <div class="meetup-when">Friday June 19 (Juneteenth) — Sunday June 21</div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">Getting There</div>
-          <div class="meetup-detail"><strong>Address:</strong> Barker Pass Trailhead, Barker Pass Rd, Tahoe City, CA 96145</div>
-          <div class="meetup-detail"><strong>From Santa Rosa:</strong> ~3 hrs 45 min via Hwy 12 East → I-80 East → Hwy 267 → Tahoe City → Hwy 89 South → Barker Pass Rd (~215 miles).</div>
-          <div class="meetup-detail"><strong>From Truckee:</strong> ~35 min via Hwy 267 South → Tahoe City → Hwy 89 South → Barker Pass Rd (~25 miles). Easiest drive of anyone.</div>
-          <div class="meetup-detail"><strong>From SF Bay Area:</strong> ~3.5 hrs via I-80 East → Hwy 267 → Tahoe City → Hwy 89 South → Barker Pass Rd.</div>
-          <div class="meetup-detail"><strong>Timing:</strong> Juneteenth is a federal holiday — most people have Friday off. Drive up Thursday evening or Friday morning to meet Christina as she exits Desolation.</div>
-          <div class="meetup-detail"><strong>Parking:</strong> Barker Pass trailhead has a small lot. Arrive Friday morning. Confirm road is open before driving up — call LTBMU: (530) 543-2600.</div>
-          <div class="meetup-detail"><strong>Note:</strong> If Barker Pass road is still closed (rare in a low snow year), fallback meeting point is Blackwood Canyon Trailhead ~1 mi lower on the same road.</div>
-          <div class="meetup-detail"><strong>Google Maps:</strong> <a class="inline-link" href="https://maps.google.com/?q=39.0767895,-120.2352977" target="_blank">39.0767895, -120.2352977 ↗</a></div>
-        </div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">Permits</div>
-          <div class="meetup-detail">No Desolation Wilderness permit needed — friends meet Christina at Barker Pass <strong>after</strong> she exits Desolation. Camping June 19–21 is in Granite Chief Wilderness and National Forest land, which requires no overnight permit. The only permit friends need is a <strong>California Campfire Permit</strong> (free) to use a stove: <a class="inline-link" href="https://www.readyforwildfire.org/permits" target="_blank">readyforwildfire.org ↗</a></div>
-        </div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">What to Bring</div>
-          <div class="meetup-detail">Pack for 2 nights / 3 days (Fri–Sun). ~26 miles total: Barker Pass → Five Lakes → Twin Peaks → Brockway Summit. Beautiful west-side terrain — forgiving, scenic, granite lakes and ridgeline views. Elevation ~6,800–8,400 ft.</div>
-          <div class="meetup-detail" style="margin-top:6px;">Need: bear canister, trekking poles, sun protection, rain layer for afternoon thunderstorms, layers for cold nights. No special permits required — entirely outside Desolation Wilderness.</div>
-        </div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">Exit Plan</div>
-          <div class="meetup-detail">Friends exit Sunday June 21 at <strong>Brockway Summit Trailhead</strong> (Hwy 267, Kings Beach area). Rideshare or car shuttle back to Barker Pass to retrieve cars (~50 min drive).</div>
-          <div class="meetup-detail" style="margin-top:6px;"><strong>Brockway GPS:</strong> <a class="inline-link" href="https://maps.google.com/?q=39.258295,-120.064944" target="_blank">39.258295, -120.064944 ↗</a></div>
-        </div>
-
-        <div class="meetup-section">
-          <div class="meetup-section-title">Nearby Lodging Option</div>
-          <div class="meetup-detail">Tahoe City is 20 min north — hotels, Airbnbs, restaurants right on the lake. Book well ahead for Juneteenth weekend.</div>
-        </div>
-      </div>
+    <div class="friend-card friend-b">
+      <div class="friend-name">Friend B</div>
+      <div class="friend-days">3 Days &nbsp;·&nbsp; Barker Pass → Tahoe City</div>
+      <div class="friend-detail"><strong>Dates</strong>June 18–20</div>
+      <div class="friend-detail"><strong>Joins At</strong>Barker Pass Trailhead (drive up Blackwood Canyon Rd)</div>
+      <div class="friend-detail"><strong>Exits At</strong>Tahoe City (Hwy 89 / 64 Acres Park)</div>
+      <div class="friend-detail"><strong>Section</strong>Barker Pass → Twin Peaks → Ward Canyon → Page Meadows → Tahoe City</div>
+      <div class="friend-detail"><strong>Miles</strong>~17 miles over 3 days</div>
+      <div class="friend-detail"><strong>Terrain</strong>Volcanic peaks, wildflower meadows, forested Ward Canyon, Page Meadows</div>
+      <div class="friend-detail"><strong>Permit</strong>No permit required for this section</div>
     </div>
+  </div>
+  <div class="permit-alert">
+    <div class="permit-alert-title">Meetup Notes</div>
+    <div class="permit-alert-text">Friend A: meet at Echo Lake Chalet parking lot morning of June 14. Water taxi available across Echo Lakes (saves ~1.5 miles). Friend B: meet at Barker Pass Trailhead end of Day 4 (June 17 evening). Camp ~0.75 miles in from the trailhead first night together. Barker Pass Rd is off Hwy 89 at Kaspian Campground — follow Blackwood Canyon Rd 7.5 miles to trailhead.</div>
   </div>
 </div>
 
 <!-- GEAR -->
-<div id="gear" class="section">
-  <div class="section-wrap">
-    <div class="section-title">Gear List</div>
-    <div class="section-subtitle">Click items to check them off. Progress saves in this session.</div>
-
-    <div class="gear-progress">
-      <div class="gear-progress-label" id="gear-progress-label">0 of 0 items packed</div>
-      <div class="gear-progress-bar-bg">
-        <div class="gear-progress-bar-fill" id="gear-progress-bar" style="width:0%"></div>
-      </div>
-    </div>
-
-    <div id="gear-container"></div>
-    <button class="gear-reset" onclick="resetGear()">Reset all</button>
+<div class="section" id="tab-gear">
+  <div class="section-header">
+    <div class="section-title">Gear Checklist</div>
+    <div class="section-desc">Click items to check them off as you pack.</div>
   </div>
+  <div class="gear-progress-label" id="gear-progress-label">0 of 0 items packed</div>
+  <div class="gear-progress-bar-wrap"><div class="gear-progress-bar" id="gear-progress-bar" style="width:0%"></div></div>
+  <button class="gear-reset-btn" onclick="resetGear()">Reset Checklist</button>
+  <div id="gear-container"></div>
 </div>
-
-<!-- PERMITS -->
-<div id="permits" class="section">
-  <div class="section-wrap">
-    <div class="section-title">Permits & Reservations</div>
-    <div class="section-subtitle">Everything needed before you leave the trailhead</div>
-
-    <div class="permit-card">
-      <div class="permit-status todo"></div>
-      <div class="permit-info">
-        <h3>Desolation Wilderness TRT Thru-Hike Permit</h3>
-        <p>Required for your June 18 entry at Echo Lake. Only 10 slots/night — book immediately at <a class="inline-link" href="https://www.recreation.gov/permits/233261" target="_blank">recreation.gov/permits/233261 ↗</a>. Entry: Echo Lake. Exit: Meeks Bay. Entry date: 6/18/2026. Exit date: 6/19/2026. Print within 14 days of entry (after June 4).</p>
-      </div>
-      <div class="permit-cost"><strong>$16</strong>$10/person + $6 fee</div>
-    </div>
-
-    <div class="permit-card">
-      <div class="permit-status todo"></div>
-      <div class="permit-info">
-        <h3>California Campfire Permit</h3>
-        <p>Required to use your camp stove anywhere on the TRT — including Nevada sections. Free. Watch a short video and take a quiz at <a class="inline-link" href="https://www.readyforwildfire.org/permits" target="_blank">readyforwildfire.org ↗</a>. Print and carry. Expires Dec 31, 2026.</p>
-      </div>
-      <div class="permit-cost"><strong>Free</strong></div>
-    </div>
-
-    <div class="permit-card">
-      <div class="permit-status todo"></div>
-      <div class="permit-info">
-        <h3>Barker Pass Road Access — Confirm Open</h3>
-        <p>Road closes seasonally Oct–June. In a low snow year like 2026 it should be open by June 19, but confirm with the Lake Tahoe Basin Management Unit closer to your trip: <a class="inline-link" href="tel:530-543-2600">(530) 543-2600</a>. Fallback: Blackwood Canyon Trailhead (~1 mi lower on same road).</p>
-      </div>
-      <div class="permit-cost"><strong>Free</strong>Verify May</div>
-    </div>
-
-    <hr class="divider">
-    <div class="section-section-title">Key Contacts</div>
-    <div>
-      <div class="contact-row"><span class="contact-label">TRTA Main Line</span><span class="contact-val"><a href="tel:7752984485">(775) 298-4485</a> · Bear canister rental, trail conditions</span></div>
-      <div class="contact-row"><span class="contact-label">LTBMU Forest Service</span><span class="contact-val"><a href="tel:5305432600">(530) 543-2600</a> · Desolation permits, road access</span></div>
-      <div class="contact-row"><span class="contact-label">Recreation.gov</span><span class="contact-val"><a href="https://recreation.gov/permits/233261" target="_blank">recreation.gov/permits/233261</a> · Desolation overnight permit</span></div>
-      <div class="contact-row"><span class="contact-label">Campfire Permit</span><span class="contact-val"><a href="https://www.readyforwildfire.org/permits" target="_blank">readyforwildfire.org/permits</a> · Free stove permit</span></div>
-      <div class="contact-row"><span class="contact-label">Trail Conditions</span><span class="contact-val"><a href="https://tahoerimtrail.org/current-trail-conditions/" target="_blank">tahoerimtrail.org/current-trail-conditions</a></span></div>
-      <div class="contact-row"><span class="contact-label">FarOut App</span><span class="contact-val">Tahoe Rim Trail guide — ~$15 · Download offline maps before leaving</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- LOGISTICS -->
-<div id="logistics" class="section">
-  <div class="section-wrap">
-    <div class="section-title">Logistics</div>
-    <div class="section-subtitle">Transportation, resupply, communication, and contingencies</div>
-
-    <div class="section-section-title">Car & Transportation</div>
-    <div class="logistics-grid">
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🚗</div>
-        <h3>Christina's Car</h3>
-        <p>Park at <strong>64 Acres Trailhead</strong>, Tahoe City (or nearby long-term lot — TRTA advises against extended trailhead parking). Consider parking at a Tahoe City hotel lot or asking your SLT hotel if they'll hold your car. The loop returns to the same point so no shuttle needed.</p>
-      </div>
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🤝</div>
-        <h3>Friend Weekend 1 Car Shuttle</h3>
-        <p>Friends park at <strong>Spooner Summit</strong> (Sat Jun 13). Exit Sunday Jun 14 at <strong>Kingsbury South Trailhead</strong>. One person drives a car from Spooner to Kingsbury South before the hike starts, retrieved after. Or rideshare (~15 min, ~$20) from Kingsbury back to Spooner.</p>
-      </div>
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🤝</div>
-        <h3>Friend Weekend 2 Car Shuttle</h3>
-        <p>Friends park at <strong>Barker Pass</strong> (Fri Jun 19). Exit Sunday Jun 21 at <strong>Brockway Summit Trailhead</strong> (Hwy 267). Rideshare or shuttle back to Barker Pass (~50 min drive via Tahoe City → Hwy 89 South → Barker Pass Rd, ~$40–55).</p>
-      </div>
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🚌</div>
-        <h3>Getting to Tahoe City</h3>
-        <p>From SF Bay Area: drive ~3.5 hrs via I-80 East to Hwy 267 to Tahoe City, or Hwy 50 East. Amtrak to Truckee + TART bus to Tahoe City also works. North Tahoe Express runs from Reno airport.</p>
-      </div>
-    </div>
-
-    <div class="section-section-title">Resupply</div>
-    <div class="logistics-grid">
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🛒</div>
-        <h3>South Lake Tahoe — Day 8/9</h3>
-        <p>Rideshare ~9 miles from Echo Summit/Echo Lake trailhead. <strong>Do not road walk</strong> — dangerous, no shoulder.</p>
-        <ul>
-          <li>Grocery: Raley's, Safeway, Grocery Outlet</li>
-          <li>Gear: Alpenglow Sports, Tahoe Mountain Sports</li>
-          <li>Fuel canisters available at gear shops</li>
-          <li>Consider mailing a resupply box to your hotel</li>
-        </ul>
-      </div>
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🏪</div>
-        <h3>Tahoe City — Start/Finish</h3>
-        <p>Trail runs through town. Save Mart grocery nearly on the TRT. Post office ~1 mile for mail drops.</p>
-        <ul>
-          <li>Fuel canisters at Alpenglow Sports</li>
-          <li>Multiple restaurants for pre/post-hike meals</li>
-          <li>Bear canister rental: TRTA (775) 298-4485</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section-section-title">Communication & Safety</div>
-    <div class="logistics-grid">
-      <div class="logistics-card">
-        <div class="logistics-card-icon">📡</div>
-        <h3>Cell Service</h3>
-        <p>Unreliable on most of the TRT — especially the east side Nevada sections (Days 2–6) and high ridgelines. Do not count on cell service for navigation or emergencies. Download FarOut maps offline before departing.</p>
-      </div>
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🛰️</div>
-        <h3>Satellite Communicator</h3>
-        <p>Strongly recommended given solo hiking on early-season terrain. <strong>Garmin inReach Mini 2</strong> is the standard. Rent from REI (~$35/week) or buy. Set up check-in schedule with someone at home — daily or every other day.</p>
-      </div>
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🔋</div>
-        <h3>Power</h3>
-        <p>Phone is your primary navigation. Carry a <strong>20,000 mAh power bank</strong> — sufficient for 5+ days between the SLT charge stop (Day 8/9). Charge everything fully in SLT before re-entering.</p>
-      </div>
-      <div class="logistics-card">
-        <div class="logistics-card-icon">🏥</div>
-        <h3>Emergency Contacts</h3>
-        <p>Leave a full itinerary with a trusted contact at home. Include: start date, route, expected finish, meetup trailhead coordinates, and when to call for help if you miss a check-in.</p>
-        <p style="margin-top:8px;"><strong>El Dorado County SAR:</strong> 911<br><strong>Placer County SAR:</strong> 911<br><strong>LTBMU Ranger:</strong> (530) 543-2600</p>
-      </div>
-    </div>
-
-    <div class="section-section-title">Water Strategy</div>
-    <div class="logistics-card" style="margin-bottom:16px;">
-      <h3>East Side Dry Stretches (Days 2–6)</h3>
-      <div style="margin-top:12px; display:grid; gap:10px;">
-        <div>
-          <div style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-light);margin-bottom:4px;">Watson Lake → Gray Lake area (~17 miles)</div>
-          <div style="font-size:13px;color:var(--granite-pale);line-height:1.6;">The longest reliable dry stretch on the entire TRT. Tank up fully at Watson Lake. Carry 4–5L. In a low snow year, some seasonal streams may still be flowing mid-June — check FarOut user reports the day before this section.</div>
-          <div style="margin-top:8px;">
-            <div class="water-label">Recommended carry capacity</div>
-            <div class="water-bar-bg"><div class="water-bar-fill" style="width:90%"></div></div>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-light);margin-bottom:4px;">Tahoe City → Watson Lake (~13 miles)</div>
-          <div style="font-size:13px;color:var(--granite-pale);">More reliable. Watson Creek typically flowing mid-June. Standard 2L carry sufficient.</div>
-          <div style="margin-top:8px;">
-            <div class="water-label">Recommended carry capacity</div>
-            <div class="water-bar-bg"><div class="water-bar-fill" style="width:40%"></div></div>
-          </div>
-        </div>
-        <div>
-          <div style="font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-light);margin-bottom:4px;">Desolation Wilderness (Days 10–11)</div>
-          <div style="font-size:13px;color:var(--granite-pale);">Water everywhere — lakes, streams. Main concern is creek crossings being swollen. Cross in the morning when runoff is lowest. Standard 2L carry sufficient between sources.</div>
-          <div style="margin-top:8px;">
-            <div class="water-label">Recommended carry capacity</div>
-            <div class="water-bar-bg"><div class="water-bar-fill" style="width:35%"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-section-title">Pre-Trip Checklist</div>
-    <div class="logistics-card">
-      <ul style="display:grid; grid-template-columns:1fr 1fr; gap:6px 20px;">
-        <li>Book Desolation permit (recreation.gov)</li>
-        <li>Get California Campfire Permit (free)</li>
-        <li>Download FarOut TRT offline maps</li>
-        <li>Confirm Barker Pass road open (call LTBMU in May)</li>
-        <li>Reserve SLT hotel for rest day (Jun 17)</li>
-        <li>Mail resupply box to SLT hotel</li>
-        <li>Charge/test satellite communicator</li>
-        <li>Permethrin-treat clothing 24–48 hrs before</li>
-        <li>Leave full itinerary with emergency contact</li>
-        <li>Rent/confirm bear canister (TRTA)</li>
-        <li>Buy FarOut app TRT guide (~$15)</li>
-        <li>Check TRTA trail conditions week before</li>
-      </ul>
-    </div>
-
-  </div>
-</div>
-
-<footer>
-  Tahoe Rim Trail · June 9–23, 2026 · Built for Christina + crew · <a class="inline-link" href="https://tahoerimtrail.org" target="_blank">tahoerimtrail.org</a>
-</footer>
 
 <script>
-  // ---- NAV ----
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.target.classList.add('active');
-    window.scrollTo(0,0);
-    if (id === 'itinerary') setTimeout(drawElevationCharts, 80);
+// ---- DATA ----
+const DAYS = [
+  {
+    num: 1, date: 'Sat Jun 14', title: 'Echo Lake → Gilmore Lake',
+    type: 'desolation', miles: 11, gain: 1800, camp: 'Gilmore Lake (Zone 29)',
+    friends: 'Friend A joins',
+    water: 'Echo Lakes, Heather Lake, Susie Lake, Gilmore Lake',
+    notes: [
+      { text: 'Meet Friend A at Echo Lake Chalet parking lot — early start recommended', type: 'highlight' },
+      { text: 'Take the water taxi across Echo Lakes — saves 1.5 miles and is a great start', type: '' },
+      { text: 'Enter Desolation Wilderness — carry printed permit, entry date June 14', type: 'warning' },
+      { text: 'Lake Aloha: NO camping in Zone 33 — spectacular but pass through only', type: 'warning' },
+      { text: 'Gilmore Lake: flat granite spots, camp min 100 ft from shore', type: '' },
+      { text: 'Note: Gilmore gets day hikers from Glen Alpine trailhead — arrive early for best sites', type: '' },
+    ]
+  },
+  {
+    num: 2, date: 'Sun Jun 15', title: 'Gilmore Lake → Dicks Pass → Dicks Lake',
+    type: 'desolation', miles: 8, gain: 1600, camp: 'Dicks Lake (Zone 23)',
+    friends: 'Friend A',
+    water: 'Gilmore Lake, Dicks Lake',
+    notes: [
+      { text: 'Big climb today — Dicks Pass at 9,377 ft. Biggest elevation gain of the trip', type: 'warning' },
+      { text: 'Views from Dicks Pass: Lake Aloha south, Dicks Peak west, Velma Lakes north', type: 'highlight' },
+      { text: 'Dicks Lake: beautiful high alpine camp, great swimming', type: 'highlight' },
+      { text: 'Shorter mileage day — take your time on the pass and enjoy the views', type: '' },
+    ]
+  },
+  {
+    num: 3, date: 'Mon Jun 16', title: 'Dicks Lake → Fontanillis → Middle Velma → Exit DW',
+    type: 'desolation', miles: 9, gain: 800, camp: 'Fontanillis Lake or Middle Velma area',
+    friends: 'Friend A',
+    water: 'Fontanillis Lake, Velma Lakes',
+    notes: [
+      { text: 'Last night in Desolation Wilderness', type: '' },
+      { text: 'Fontanillis Lake: stunning, less crowded than Dicks — great swim stop', type: 'highlight' },
+      { text: 'Middle Velma Lakes: excellent island-to-island swimming', type: 'highlight' },
+      { text: 'Exit Desolation Wilderness boundary heading north toward Richardson Lake', type: '' },
+    ]
+  },
+  {
+    num: 4, date: 'Tue Jun 17', title: 'Exit Desolation → Richardson Lake → Barker Pass',
+    type: 'desolation', miles: 6, gain: 400, camp: '~0.75 miles north of Barker Pass Trailhead',
+    friends: 'Friend A exits / Friend B arrives',
+    water: 'Richardson Lake, Miller Creek',
+    notes: [
+      { text: 'Shorter day — arrive at Barker Pass by mid-afternoon', type: '' },
+      { text: 'Richardson Lake: accessible by 4x4, outside Desolation — bear watch', type: '' },
+      { text: 'Friend A exits at Barker Pass Trailhead — car pickup at parking lot', type: 'highlight' },
+      { text: 'Friend B arrives at Barker Pass Trailhead by evening — meet at parking lot', type: 'highlight' },
+      { text: 'Camp ~0.75 miles north of trailhead on TRT corridor (well-known dispersed site)', type: '' },
+    ]
+  },
+  {
+    num: 5, date: 'Wed Jun 18', title: 'Barker Pass → Twin Peaks Area',
+    type: 'west', miles: 8, gain: 1200, camp: 'Twin Peaks area',
+    friends: 'Friend B',
+    water: 'North Fork Creek, seasonal streams',
+    notes: [
+      { text: 'Trail follows PCT north from Barker Pass through wildflower meadows and volcanic peaks', type: '' },
+      { text: 'Twin Peaks: TRT splits from PCT here — stay on TRT heading east toward Lake Tahoe', type: 'warning' },
+      { text: 'Big Lake Tahoe views open up near Twin Peaks ridge', type: 'highlight' },
+      { text: 'Five Lakes accessible as short side trip near Barker Pass — great swimming', type: 'highlight' },
+    ]
+  },
+  {
+    num: 6, date: 'Thu Jun 19', title: 'Twin Peaks → Ward Canyon → Page Meadows',
+    type: 'west', miles: 5, gain: 600, camp: 'Page Meadows',
+    friends: 'Friend B',
+    water: 'Ward Creek (reliable), small waterfall',
+    notes: [
+      { text: 'Steep descent into Ward Canyon — thickly wooded with fir and aspen', type: '' },
+      { text: 'Small waterfall along Ward Creek — great lunch spot', type: 'highlight' },
+      { text: 'Page Meadows: one of the most beautiful spots on the TRT — peak wildflowers in June', type: 'highlight' },
+      { text: 'Mellow day — enjoy the meadows and wildlife watching', type: '' },
+    ]
+  },
+  {
+    num: 7, date: 'Fri Jun 20', title: 'Page Meadows → Tahoe City',
+    type: 'west', miles: 4, gain: 0, camp: 'Finish — Tahoe City 🎉',
+    friends: 'Friend B',
+    water: 'Truckee River at finish',
+    notes: [
+      { text: 'Short final day — ~4 miles, mostly downhill to Truckee River', type: '' },
+      { text: 'Stay on fire access road near the river to reach the trailhead parking lot', type: 'warning' },
+      { text: 'Exit at 64 Acres Park / Hwy 89 trailhead in Tahoe City', type: '' },
+      { text: 'Celebrate at Front Street Tahoe — pizza and beer well earned', type: 'highlight' },
+    ]
   }
+];
 
-  // ---- ITINERARY DATA ----
-  const days = [
-    {
-      day: 1, date: 'Tue Jun 9', title: 'Tahoe City → Brockway Summit area', miles: 10,
-      gain: 1600, loss: 400, elev_start: 6230, elev_end: 7200,
-      tags: [],
-      notes: ['Easy opening day — settle into the trail', 'Clockwise start from 64 Acres Trailhead', 'Forested north shore climb through cedar and fir', 'First ridge views of Lake Tahoe', 'Short miles intentional — let your body adapt to altitude'],
-      water: 'Multiple streams on north shore approach. Carry 2L.',
-      camp: 'Near Brockway Summit area dispersed',
-      mapUrl: 'https://maps.google.com/?q=39.1645975,-120.1473527',
-      mapLabel: 'Tahoe City Trailhead'
-    },
-    {
-      day: 2, date: 'Wed Jun 10', title: 'Brockway Summit → Watson Lake', miles: 11,
-      gain: 1800, loss: 900, elev_start: 7200, elev_end: 7400,
-      tags: [],
-      notes: ['Cross Hwy 267 at Brockway Summit', 'East-trending ridge with expanding Nevada views', 'Watson Lake — first reliable east-side water source', 'Tank up fully here before east-side dry stretch begins', 'Dispersed camping near Watson Lake — not IN campground area'],
-      water: 'Watson Creek and Watson Lake reliable. Carry 4L leaving here.',
-      camp: 'Watson Lake area dispersed (100–300 ft from trail)',
-      mapUrl: 'https://maps.google.com/?q=39.258295,-120.064944',
-      mapLabel: 'Brockway Summit (ref)'
-    },
-    {
-      day: 3, date: 'Thu Jun 11', title: 'Watson Lake → Mt. Rose Area', miles: 12,
-      gain: 2600, loss: 1400, elev_start: 7400, elev_end: 8900,
-      tags: ['snow'],
-      notes: ['East side in full effect — drier terrain begins', 'Tank up at Watson Lake before leaving — long dry stretch ahead', 'Patchy snow possible on shaded north-facing slopes', 'Panoramic Nevada high desert views open up', 'Less-traveled section — solitude likely'],
-      water: 'Carry 4–5L from Watson Lake. Sources sparse. Check FarOut for seasonal streams.',
-      camp: 'Near Mt. Rose / Relay Ridge area',
-      mapUrl: 'https://maps.google.com/?q=39.258295,-120.064944',
-      mapLabel: 'Mt. Rose area (approx)'
-    },
-    {
-      day: 4, date: 'Fri Jun 12', title: 'Mt. Rose → Relay Peak → Incline Area', miles: 12,
-      gain: 1800, loss: 2400, elev_start: 8900, elev_end: 8400,
-      tags: ['snow'],
-      notes: ['Relay Peak spur — highest point on TRT (10,338 ft), optional 0.5 mi each way', 'Rocky exposed ridgeline — microspikes may be needed', 'Best panoramic views of the entire trail', 'Cross passes before noon — afternoon thunderstorm risk', 'Incline Village area has cell service if needed'],
-      water: 'Mud Lake, Gray Lake, Frog Pond — some require 0.5–1 mi detour. Check FarOut.',
-      camp: 'Between Relay Peak and Incline Ponds area',
-      mapUrl: 'https://maps.google.com/?q=39.1036066,-119.8951879',
-      mapLabel: 'Relay Peak / Incline area (approx)'
-    },
-    {
-      day: 5, date: 'Sat Jun 13', title: 'Incline Area → Spooner Summit 🤝', miles: 13,
-      gain: 1200, loss: 2100, elev_start: 8400, elev_end: 7146,
-      tags: ['meet'],
-      notes: ['Friends arrive at Spooner Summit trailhead — aim for midday', 'Marlette Lake area — Nevada State Park section begins', 'Camping in NV State Park restricted to designated sites: Marlette Peak, Hobart, or North Canyon ONLY', 'Spooner Summit has restrooms and parking'],
-      water: 'Marlette Lake reliable water source.',
-      camp: 'Marlette Peak Campground (NV State Park — designated sites)',
-      mapUrl: 'https://maps.google.com/?q=39.1036066,-119.8951879',
-      mapLabel: 'Spooner Summit Trailhead'
-    },
-    {
-      day: 6, date: 'Sun Jun 14', title: 'Spooner → Kingsbury North', miles: 13,
-      gain: 1900, loss: 2200, elev_start: 7146, elev_end: 7100,
-      tags: ['meet'],
-      notes: ['Friends hiking — great views day on The Bench', 'Castle Rock viewpoint — short detour, worth every step', 'Aspens and conifer forest, occasional lake views', 'Kingsbury area has cell service', 'Friends exit Sunday evening from Kingsbury South or rideshare back to Spooner'],
-      water: 'Edgewood Creek, Van Sickle area sources.',
-      camp: 'Kingsbury area dispersed',
-      mapUrl: 'https://maps.google.com/?q=38.996537,-119.896578',
-      mapLabel: 'Kingsbury North Trailhead'
-    },
-    {
-      day: 7, date: 'Mon Jun 15', title: 'Kingsbury → Freel Peak / Star Lake', miles: 13,
-      gain: 2800, loss: 1600, elev_start: 7100, elev_end: 8900,
-      tags: [],
-      notes: ['Friends exit Sunday — solo from here', 'Freel Peak optional spur — highest peak in Lake Tahoe basin (10,891 ft)', 'Star Lake: one of the most stunning alpine lakes on the entire TRT', 'Friends exit: rideshare from Kingsbury South or Big Meadow Trailhead on Hwy 89'],
-      water: 'Star Lake and streams near Freel Peak.',
-      camp: 'Star Lake (spectacular) or near Freel saddle',
-      mapUrl: 'https://maps.google.com/?q=38.8555,-119.9125',
-      mapLabel: 'Freel Peak area (approx)'
-    },
-    {
-      day: 8, date: 'Tue Jun 16', title: 'Freel → Echo Summit → South Lake Tahoe', miles: 12,
-      gain: 1100, loss: 2600, elev_start: 8900, elev_end: 6837,
-      tags: ['resupply'],
-      notes: ['Big Meadow area — meadows, pines, mellow terrain', 'Upper Truckee River crossing — high in June, cross in morning', 'Echo Lake trailhead — Echo Chalet store (snacks, fuel)', 'Rideshare to South Lake Tahoe (~9 miles, ~$20)', 'DO NOT road walk Hwy 50 — no shoulder, dangerous', 'Check in to hotel, resupply, charge everything, laundry'],
-      water: 'Upper Truckee River, seasonal streams, Echo Lake.',
-      camp: 'Hotel in South Lake Tahoe 🛏️',
-      mapUrl: 'https://maps.google.com/?q=38.834834,-120.044231',
-      mapLabel: 'Echo Lake Trailhead'
-    },
-    {
-      day: 9, date: 'Wed Jun 17', title: 'Rest Day — South Lake Tahoe', miles: 0,
-      gain: 0, loss: 0, elev_start: 6229, elev_end: 6229,
-      tags: ['rest'],
-      notes: ['Zero day — full rest and recovery', 'Resupply food for Days 10–15 (6 days)', 'Confirm Barker Pass road is open (call LTBMU)', 'Check TRTA conditions for Desolation snow', 'Print Desolation permit (available 14 days before Jun 18 entry)', 'Gear check — anything damaged? Blister care', 'Optional: swim at Lake Tahoe beach'],
-      water: 'Hotel 💧',
-      camp: 'Hotel in South Lake Tahoe 🛏️',
-      mapUrl: 'https://maps.google.com/?q=38.9499,-119.9775',
-      mapLabel: 'South Lake Tahoe'
-    },
-    {
-      day: 10, date: 'Thu Jun 18', title: 'Echo Lake → Desolation Wilderness → Dicks Lake', miles: 12,
-      gain: 2400, loss: 1400, elev_start: 6837, elev_end: 8700,
-      tags: ['desolation'],
-      notes: ['Rideshare back to Echo Lake in morning (~$20)', 'Enter Desolation Wilderness solo — permit required, carry printed copy', 'No camping near Lake Aloha (Zone 33 — prohibited)', 'Must camp within 300 ft of TRT/PCT corridor', 'Push to Dicks Lake (Zone 23) for best position to meet friends at Barker Pass tomorrow', 'Alternative: camp at Gilmore (Zone 29) or Susie Lake (Zone 34) if shorter day needed'],
-      water: 'Echo Lakes, Heather Lake, Susie Lake, Gilmore Lake, Dicks Lake — abundant.',
-      camp: 'Dicks Lake Zone 23 (or Gilmore Lake Zone 29 if stopping earlier)',
-      mapUrl: 'https://maps.google.com/?q=38.894,-120.082',
-      mapLabel: 'Dicks Lake / Gilmore Lake area'
-    },
-    {
-      day: 11, date: 'Fri Jun 19 — Juneteenth 🎉', title: 'Dicks Pass → Barker Pass 🤝', miles: 13,
-      gain: 1400, loss: 2500, elev_start: 8700, elev_end: 7650,
-      tags: ['meet'],
-      notes: ['Cross Dicks Pass (9,377 ft) — most spectacular viewpoint on the TRT', 'Exit Desolation Wilderness', 'Friends drive up on Juneteenth federal holiday — most have day off', 'Friends park at Barker Pass trailhead and hike in to meet you', 'Camp together near Barker Pass for first night'],
-      water: 'Fontanillis Lake, streams after Dicks Pass.',
-      camp: 'Near Barker Pass / Five Lakes area',
-      mapUrl: 'https://maps.google.com/?q=39.0767895,-120.2352977',
-      mapLabel: 'Barker Pass Trailhead'
-    },
-    {
-      day: 12, date: 'Sat Jun 20', title: 'Barker Pass → Five Lakes → Twin Peaks', miles: 13,
-      gain: 2300, loss: 1800, elev_start: 7650, elev_end: 8200,
-      tags: ['meet'],
-      notes: ['Five Lakes: best swimming spot on the entire TRT — don\'t skip it', 'Granite Chief Wilderness views', 'Twin Peaks area: open ridgeline, big views back toward Lake Tahoe', 'More forgiving terrain — perfect for friends on Day 2', 'Wide granite slabs for stargazing at camp'],
-      water: 'Five Lakes, multiple streams.',
-      camp: 'Ward Creek / Twin Peaks area dispersed',
-      mapUrl: 'https://maps.google.com/?q=39.15,-120.18',
-      mapLabel: 'Twin Peaks area (approx)'
-    },
-    {
-      day: 13, date: 'Sun Jun 21', title: 'Twin Peaks → Brockway Summit', miles: 13,
-      gain: 1400, loss: 2300, elev_start: 8200, elev_end: 7200,
-      tags: ['meet'],
-      notes: ['Friends exit at Brockway Summit (Hwy 267) — arrange car shuttle or rideshare back to Barker Pass (~50 min)', 'Brockway to Kings Beach / North Shore services 5 min away', 'Christina camps final night near Brockway'],
-      water: 'Multiple streams north of Twin Peaks.',
-      camp: 'Near Brockway Summit area dispersed',
-      mapUrl: 'https://maps.google.com/?q=39.2582953,-120.0649439',
-      mapLabel: 'Brockway Summit Trailhead'
-    },
-    {
-      day: 14, date: 'Mon Jun 22', title: 'Brockway → North Shore approach', miles: 10,
-      gain: 900, loss: 1600, elev_start: 7200, elev_end: 6600,
-      tags: [],
-      notes: ['Solo final stretch — north shore forest', 'Forested descent with occasional Tahoe glimpses', 'Relaxed pace — short miles to set up easy finish tomorrow', 'Camp within easy striking distance of Tahoe City'],
-      water: 'Multiple streams on north shore descent.',
-      camp: 'North shore approach dispersed',
-      mapUrl: 'https://maps.google.com/?q=39.2582953,-120.0649439',
-      mapLabel: 'Brockway Summit (ref)'
-    },
-    {
-      day: 15, date: 'Tue Jun 23', title: 'Tahoe City — Loop Complete 🏁', miles: 8,
-      gain: 600, loss: 1200, elev_start: 6600, elev_end: 6230,
-      tags: [],
-      notes: ['Final push — loop complete!', 'Gentle descent back into Tahoe City', 'Finish at 64 Acres Trailhead — same spot you started 15 days ago', 'Celebrate: Tahoe City has excellent restaurants and bars right on the lake', 'TRTA 165-Mile Club — submit your finish for a patch!'],
-      water: 'Multiple streams and springs near Tahoe City.',
-      camp: '64 Acres Trailhead, Tahoe City 🎉',
-      mapUrl: 'https://maps.google.com/?q=39.1645975,-120.1473527',
-      mapLabel: 'FINISH: 64 Acres Trailhead'
-    }
-  ];
+const GEAR = [
+  {
+    category: 'Permit & Documents',
+    items: [
+      { name: 'Desolation Wilderness Permit (printed)', note: 'Zone 29 Gilmore, June 14 entry, 3 people', badge: 'essential' },
+      { name: 'CA Campfire Permit (free)', note: 'Required for stove use — readyforwildfire.org', badge: 'essential' },
+      { name: 'Trail map / FarOut app downloaded', note: 'TRT guide with GPS tracking', badge: 'essential' },
+      { name: 'Emergency contacts list', note: '' },
+    ]
+  },
+  {
+    category: 'Shelter & Sleep',
+    items: [
+      { name: 'Tent', note: '' },
+      { name: 'Sleeping bag', note: 'Rated for low 30s — June nights in Desolation are cold', badge: '' },
+      { name: 'Sleeping pad', note: '' },
+      { name: 'Tent stakes + repair kit', note: '' },
+    ]
+  },
+  {
+    category: 'Navigation & Safety',
+    items: [
+      { name: 'Headlamp + extra batteries', note: '' },
+      { name: 'First aid kit', note: '' },
+      { name: 'Emergency whistle', note: '' },
+      { name: 'Satellite communicator (InReach)', note: 'Recommended for Desolation sections', badge: '' },
+      { name: 'Sunscreen SPF 50+', note: 'High elevation UV exposure' },
+      { name: 'Sunglasses', note: '' },
+      { name: 'Lip balm with SPF', note: '' },
+    ]
+  },
+  {
+    category: 'Clothing',
+    items: [
+      { name: 'Base layer (2x)', note: '' },
+      { name: 'Insulating mid layer', note: 'Fleece or down — cold nights at elevation' },
+      { name: 'Rain jacket / shell', note: 'June afternoon thunderstorms possible' },
+      { name: 'Hiking pants / shorts', note: '' },
+      { name: 'Warm hat + gloves', note: 'For Dicks Pass crossing' },
+      { name: 'Sun hat', note: '' },
+      { name: 'Hiking socks (4–5 pairs)', note: '' },
+      { name: 'Camp shoes / sandals', note: 'Light crocs or chacos' },
+      { name: 'Gaiters', note: 'For early June snow patches', badge: 'new' },
+    ]
+  },
+  {
+    category: 'Footwear & Traction',
+    items: [
+      { name: 'Trail runners / hiking boots', note: '' },
+      { name: 'Microspikes', note: 'For Dicks Pass — early June snow likely', badge: 'essential' },
+    ]
+  },
+  {
+    category: 'Food & Water',
+    items: [
+      { name: 'Bear canister (required in Desolation)', note: 'BV500 or similar', badge: 'essential' },
+      { name: 'Water filter (Sawyer Squeeze or similar)', note: '' },
+      { name: 'Water bottles / reservoir (3L capacity)', note: '' },
+      { name: '7 days of food', note: '~1.5–2 lbs/day' },
+      { name: 'Stove + fuel canister', note: 'No campfires allowed anywhere on route' },
+      { name: 'Cook pot + spork', note: '' },
+      { name: 'Electrolytes / snacks', note: '' },
+    ]
+  },
+  {
+    category: 'Pack & Organization',
+    items: [
+      { name: 'Backpack (50–65L)', note: '' },
+      { name: 'Pack rain cover', note: '' },
+      { name: 'Dry bags / stuff sacks', note: '' },
+      { name: 'Trekking poles', note: '' },
+      { name: 'Trowel + WAG bags', note: 'LNT — pack out waste above treeline' },
+      { name: 'Biodegradable soap', note: '' },
+      { name: 'Toilet paper + hand sanitizer', note: '' },
+      { name: 'Insect repellent', note: 'Mosquitoes peak mid-June in Desolation', badge: 'new' },
+    ]
+  }
+];
 
-  function buildItinerary() {
-    const container = document.getElementById('days-container');
+// ---- RENDER ITINERARY ----
+function buildItinerary() {
+  const container = document.getElementById('itinerary-container');
+  DAYS.forEach((day, i) => {
+    const card = document.createElement('div');
+    card.className = `day-card ${day.type}`;
 
-    // Build full-trip elevation profile first
-    container.innerHTML = `<div style="margin-bottom:28px;">
-      <div class="day-section-label" style="margin-bottom:10px;">Full Trip Elevation Profile — click a section to jump to those days</div>
-      <canvas id="elev-full" height="130" style="width:100%;border-radius:8px;background:rgba(255,255,255,0.03);border:1px solid rgba(200,219,191,0.1);cursor:pointer;"></canvas>
-      <div style="display:flex;gap:20px;margin-top:8px;flex-wrap:wrap;">
-        <span style="font-size:11px;color:var(--sage-light);">▬ Section 1</span>
-        <span style="font-size:11px;color:var(--lake-light);">▬ Section 2</span>
-        <span style="font-size:11px;color:var(--ember);">▬ Section 3 (Desolation)</span>
-        <span style="font-size:11px;color:var(--gold);">▬ Section 4</span>
-        <span style="font-size:11px;color:rgba(200,219,191,0.3);">● Meet-up  ★ Resupply/Rest</span>
+    const friendBadge = day.friends ? `<span class="day-badge friend">${day.friends}</span>` : '';
+    const typeBadge = `<span class="day-badge ${day.type}">${day.type === 'desolation' ? 'Desolation' : 'West Shore'}</span>`;
+
+    card.innerHTML = `
+      <div class="day-header" onclick="toggleDay(${i})">
+        <div class="day-num">0${day.num}<span>${day.date.split(' ').slice(1).join(' ')}</span></div>
+        <div class="day-main">
+          <div class="day-title">${day.title}</div>
+          <div class="day-meta">
+            <span class="day-meta-item">${day.miles} mi</span>
+            <span class="day-meta-item">+${day.gain.toLocaleString()} ft</span>
+            <span class="day-meta-item">${day.camp}</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+          ${typeBadge}
+          ${friendBadge}
+        </div>
       </div>
-    </div>`;
-
-    days.forEach((d, i) => {
-      const tagHtml = d.tags.map(t => {
-        const labels = { meet: '🤝 Meet-up', resupply: '🛒 Resupply', rest: '😴 Rest Day', desolation: '🏔 Desolation', snow: '❄️ Snow Likely' };
-        const cls = { meet: 'tag-meet', resupply: 'tag-resupply', rest: 'tag-rest', desolation: 'tag-desolation', snow: 'tag-snow' };
-        return `<span class="tag ${cls[t]}">${labels[t]}</span>`;
-      }).join(' ');
-
-      const milesDisplay = d.miles === 0 ? '—' : d.miles;
-      const notesList = d.notes.map(n => `<li>${n}</li>`).join('');
-      const gainStr = d.miles === 0 ? '—' : `+${d.gain.toLocaleString()}′`;
-      const lossStr = d.miles === 0 ? '—' : `-${d.loss.toLocaleString()}′`;
-
-      container.innerHTML += `
-        <div class="day-card" id="daycard-${i}">
-          <div class="day-header" onclick="toggleDay(${i})">
-            <div class="day-num">${String(d.day).padStart(2,'0')}</div>
-            <div class="day-info">
-              <div class="day-date">${d.date} ${tagHtml}</div>
-              <div class="day-title">${d.title}</div>
-              <div style="display:flex;gap:14px;margin-top:4px;">
-                <span style="font-size:11px;color:#7dbf6e;">↑ ${gainStr}</span>
-                <span style="font-size:11px;color:#e8a888;">↓ ${lossStr}</span>
-                ${d.miles > 0 ? `<span style="font-size:11px;color:var(--granite);">${d.elev_start.toLocaleString()}′ → ${d.elev_end.toLocaleString()}′</span>` : ''}
-              </div>
-            </div>
-            <div class="day-meta">
-              <div class="day-miles">${milesDisplay}</div>
-              <div class="day-miles-label">${d.miles === 0 ? 'rest' : 'miles'}</div>
-              <span class="chevron" id="chev-${i}">▼</span>
-            </div>
+      <div class="day-body" id="day-body-${i}">
+        <div class="day-details">
+          <div class="day-detail-block">
+            <div class="day-detail-label">Camp</div>
+            <div class="day-detail-val">${day.camp}</div>
           </div>
-          <div class="day-body" id="body-${i}">
-            <div style="margin:14px 0 4px;">
-              <canvas id="elev-${i}" height="90" style="width:100%;border-radius:6px;background:rgba(255,255,255,0.02);border:1px solid rgba(200,219,191,0.08);"></canvas>
-            </div>
-            <div class="day-body-inner">
-              <div>
-                <div class="day-section-label">Route Notes</div>
-                <div class="day-notes"><ul>${notesList}</ul></div>
-                <div style="margin-top:14px;">
-                  <div class="day-section-label">Water</div>
-                  <div class="day-notes">${d.water}</div>
-                </div>
-                <div style="margin-top:14px;">
-                  <div class="day-section-label">Camp</div>
-                  <div class="day-notes">${d.camp}</div>
-                </div>
-              </div>
-              <div>
-                <div class="day-section-label">Map</div>
-                <div class="day-map-placeholder">
-                  <div style="font-size:13px;color:var(--granite-light);">${d.mapLabel}</div>
-                  <a class="map-link" href="${d.mapUrl}" target="_blank">Open in Google Maps ↗</a>
-                </div>
-              </div>
-            </div>
+          <div class="day-detail-block">
+            <div class="day-detail-label">Water Sources</div>
+            <div class="day-detail-val">${day.water}</div>
           </div>
         </div>
-      `;
-    });
+        <div class="day-notes">
+          ${day.notes.map(n => `<div class="day-note ${n.type}">${n.text}</div>`).join('')}
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
 
-    // Draw charts after DOM is ready
-    setTimeout(drawElevationCharts, 50);
-  }
+function toggleDay(i) {
+  const body = document.getElementById(`day-body-${i}`);
+  body.classList.toggle('open');
+}
 
-  function getSectionColor(dayIndex) {
-    if (dayIndex <= 3) return '#7a9e6e';       // Section 1 — sage
-    if (dayIndex <= 7) return '#5a9ab8';       // Section 2 — lake
-    if (dayIndex <= 10) return '#c85a28';      // Section 3 — ember/desolation
-    return '#b8862a';                          // Section 4 — gold
-  }
+// ---- RENDER GEAR ----
+function buildGear() {
+  const container = document.getElementById('gear-container');
+  const saved = JSON.parse(localStorage.getItem('trt-2026-gear') || '{}');
 
-  function drawElevationCharts() {
-    // --- Full trip profile ---
-    const fc = document.getElementById('elev-full');
-    if (!fc) return;
-    fc.width = fc.offsetWidth * window.devicePixelRatio;
-    fc.height = 130 * window.devicePixelRatio;
-    const fctx = fc.getContext('2d');
-    fctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    const fw = fc.offsetWidth, fh = 130;
-    const pad = { t: 16, b: 28, l: 44, r: 12 };
+  GEAR.forEach(cat => {
+    const div = document.createElement('div');
+    div.className = 'gear-category';
 
-    // Build a smooth multi-point profile per day
-    const profile = [];
-    days.forEach((d, i) => {
-      if (d.miles === 0) {
-        profile.push({ x: i, elev: d.elev_start, day: i, isRest: true });
-        return;
-      }
-      const steps = 8;
-      for (let s = 0; s <= steps; s++) {
-        const t = s / steps;
-        // Simple sine-shaped profile: rise in first half, fall in second (or reverse)
-        const midElev = Math.max(d.elev_start, d.elev_end) + Math.min(d.gain, d.loss) * 0.4 * Math.sin(Math.PI * t);
-        const elev = d.elev_start + (d.elev_end - d.elev_start) * t + (d.gain * 0.3) * Math.sin(Math.PI * t);
-        profile.push({ x: i + t, elev, day: i });
-      }
-    });
-
-    const elevMin = 5800, elevMax = 10600;
-    const toY = (e) => pad.t + (fh - pad.t - pad.b) * (1 - (e - elevMin) / (elevMax - elevMin));
-    const toX = (x) => pad.l + (fw - pad.l - pad.r) * (x / (days.length - 0.5));
-
-    // Y grid lines
-    [6000, 7000, 8000, 9000, 10000].forEach(e => {
-      const y = toY(e);
-      fctx.beginPath();
-      fctx.moveTo(pad.l, y); fctx.lineTo(fw - pad.r, y);
-      fctx.strokeStyle = 'rgba(200,219,191,0.07)'; fctx.lineWidth = 1; fctx.stroke();
-      fctx.fillStyle = 'rgba(200,219,191,0.35)'; fctx.font = '9px DM Sans, sans-serif';
-      fctx.textAlign = 'right'; fctx.fillText((e/1000).toFixed(0)+'k', pad.l - 4, y + 3);
-    });
-
-    // Draw per-section fills and lines
-    let lastDay = -1;
-    let segStart = 0;
-    for (let seg = 0; seg < 4; seg++) {
-      const dayRanges = [[0,3],[4,7],[8,10],[11,13]];
-      const [ds, de] = dayRanges[seg];
-      const colors = ['#7a9e6e','#5a9ab8','#c85a28','#b8862a'];
-      const segPts = profile.filter(p => p.day >= ds && p.day <= de);
-      if (!segPts.length) continue;
-
-      // Fill
-      fctx.beginPath();
-      fctx.moveTo(toX(segPts[0].x), fh - pad.b);
-      segPts.forEach(p => fctx.lineTo(toX(p.x), toY(p.elev)));
-      fctx.lineTo(toX(segPts[segPts.length-1].x), fh - pad.b);
-      fctx.closePath();
-      fctx.fillStyle = colors[seg].replace(')', ',0.18)').replace('rgb(','rgba(') + (colors[seg].startsWith('#') ? '30' : '');
-      const grad = fctx.createLinearGradient(0, pad.t, 0, fh - pad.b);
-      grad.addColorStop(0, colors[seg] + '44');
-      grad.addColorStop(1, colors[seg] + '08');
-      fctx.fillStyle = grad;
-      fctx.fill();
-
-      // Line
-      fctx.beginPath();
-      segPts.forEach((p, pi) => pi === 0 ? fctx.moveTo(toX(p.x), toY(p.elev)) : fctx.lineTo(toX(p.x), toY(p.elev)));
-      fctx.strokeStyle = colors[seg]; fctx.lineWidth = 1.8; fctx.stroke();
-    }
-
-    // Day markers + meet-up/resupply dots
-    days.forEach((d, i) => {
-      const x = toX(i);
-      const y = toY(d.elev_start);
-      // Day number
-      fctx.fillStyle = 'rgba(200,219,191,0.25)'; fctx.font = '8px DM Sans,sans-serif'; fctx.textAlign = 'center';
-      fctx.fillText(d.day, x, fh - pad.b + 10);
-      // Special markers
-      if (d.tags.includes('meet')) {
-        fctx.beginPath(); fctx.arc(x, y, 4, 0, Math.PI*2);
-        fctx.fillStyle = '#5a9ab8'; fctx.fill();
-        fctx.strokeStyle = '#c0dce8'; fctx.lineWidth = 1; fctx.stroke();
-      } else if (d.tags.includes('resupply') || d.tags.includes('rest')) {
-        fctx.beginPath();
-        fctx.moveTo(x, y-5); fctx.lineTo(x+3, y+2); fctx.lineTo(x-3, y+2); fctx.closePath();
-        fctx.fillStyle = '#e8c870'; fctx.fill();
-      }
-    });
-
-    // X axis label
-    fctx.fillStyle = 'rgba(200,219,191,0.4)'; fctx.font = '9px DM Sans,sans-serif'; fctx.textAlign = 'left';
-    fctx.fillText('Day →', pad.l, fh - 2);
-
-    // Click to scroll to day
-    fc.addEventListener('click', function(e) {
-      const rect = fc.getBoundingClientRect();
-      const cx = (e.clientX - rect.left);
-      const dayIdx = Math.round((cx - pad.l) / (fw - pad.l - pad.r) * (days.length - 0.5));
-      const clamped = Math.max(0, Math.min(days.length-1, dayIdx));
-      const card = document.getElementById('daycard-' + clamped);
-      if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    // --- Per-day mini profiles ---
-    days.forEach((d, i) => {
-      if (d.miles === 0) return;
-      const c = document.getElementById('elev-' + i);
-      if (!c) return;
-      c.width = c.offsetWidth * window.devicePixelRatio;
-      c.height = 90 * window.devicePixelRatio;
-      const ctx = c.getContext('2d');
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-      const w = c.offsetWidth, h = 90;
-      const p = { t: 10, b: 22, l: 36, r: 10 };
-
-      // Generate profile points
-      const pts = [];
-      const steps = 20;
-      for (let s = 0; s <= steps; s++) {
-        const t = s / steps;
-        const elev = d.elev_start + (d.elev_end - d.elev_start) * t + d.gain * 0.35 * Math.sin(Math.PI * t);
-        pts.push({ t, elev });
-      }
-      const eMin = Math.min(...pts.map(p=>p.elev)) - 150;
-      const eMax = Math.max(...pts.map(p=>p.elev)) + 200;
-      const ty = (e) => p.t + (h - p.t - p.b) * (1 - (e - eMin) / (eMax - eMin));
-      const tx = (t) => p.l + (w - p.l - p.r) * t;
-
-      // Grid
-      const gridCount = 3;
-      for (let g = 0; g <= gridCount; g++) {
-        const e = eMin + (eMax - eMin) * g / gridCount;
-        const y = ty(e);
-        ctx.beginPath(); ctx.moveTo(p.l, y); ctx.lineTo(w - p.r, y);
-        ctx.strokeStyle = 'rgba(200,219,191,0.07)'; ctx.lineWidth = 1; ctx.stroke();
-        ctx.fillStyle = 'rgba(200,219,191,0.3)'; ctx.font = '8px DM Sans,sans-serif'; ctx.textAlign = 'right';
-        ctx.fillText(Math.round(e/100)*100 + '′', p.l - 2, y + 3);
-      }
-
-      // Fill
-      const color = getSectionColor(i);
-      const grad = ctx.createLinearGradient(0, p.t, 0, h - p.b);
-      grad.addColorStop(0, color + '55');
-      grad.addColorStop(1, color + '08');
-      ctx.beginPath();
-      ctx.moveTo(tx(0), h - p.b);
-      pts.forEach(pt => ctx.lineTo(tx(pt.t), ty(pt.elev)));
-      ctx.lineTo(tx(1), h - p.b);
-      ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
-
-      // Line
-      ctx.beginPath();
-      pts.forEach((pt, pi) => pi === 0 ? ctx.moveTo(tx(pt.t), ty(pt.elev)) : ctx.lineTo(tx(pt.t), ty(pt.elev)));
-      ctx.strokeStyle = color; ctx.lineWidth = 1.5; ctx.stroke();
-
-      // Start / end dots
-      ctx.beginPath(); ctx.arc(tx(0), ty(d.elev_start), 3, 0, Math.PI*2);
-      ctx.fillStyle = color; ctx.fill();
-      ctx.beginPath(); ctx.arc(tx(1), ty(d.elev_end), 3, 0, Math.PI*2);
-      ctx.fillStyle = color; ctx.fill();
-
-      // Labels
-      ctx.fillStyle = 'rgba(200,219,191,0.5)'; ctx.font = '8px DM Sans,sans-serif';
-      ctx.textAlign = 'left'; ctx.fillText(d.elev_start.toLocaleString()+'′', p.l + 2, h - p.b + 10);
-      ctx.textAlign = 'right'; ctx.fillText(d.elev_end.toLocaleString()+'′', w - p.r, h - p.b + 10);
-      ctx.textAlign = 'center';
-      ctx.fillStyle = '#7dbf6e'; ctx.fillText('↑'+d.gain.toLocaleString()+'′', w/2 - 20, h - p.b + 10);
-      ctx.fillStyle = '#e8a888'; ctx.fillText('↓'+d.loss.toLocaleString()+'′', w/2 + 20, h - p.b + 10);
-    });
-  }
-
-  // Redraw on resize
-  let resizeTimer;
-  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(drawElevationCharts, 150); });
-
-  function toggleDay(i) {
-    const body = document.getElementById('body-'+i);
-    const chev = document.getElementById('chev-'+i);
-    body.classList.toggle('open');
-    chev.classList.toggle('open');
-    if (body.classList.contains('open')) setTimeout(drawElevationCharts, 50);
-  }
-
-  // ---- GEAR DATA ----
-  const gearData = [
-    {
-      category: 'Already Own — Big Ticket',
-      items: [
-        { name: 'Tent / shelter', note: 'Freestanding recommended — rocky Sierra ground resists stakes', badge: null },
-        { name: 'Sleeping bag or quilt', note: '20°F rating or warmer for June at altitude', badge: null },
-        { name: 'Sleeping pad', note: 'R-value 3+ for cold ground', badge: null },
-        { name: 'Backpack (50–65L)', note: 'Need room for bear canister + 5 days food', badge: null },
-        { name: 'Stove + fuel canisters', note: 'Buy extra fuel in Tahoe City — canister stoves underperform cold', badge: null },
-        { name: 'Cook pot (700–1000ml)', note: 'MSR Titan or similar', badge: null },
-      ]
-    },
-    {
-      category: 'Still Need to Acquire',
-      items: [
-        { name: 'Trekking poles', note: 'Black Diamond Trail or Leki Micro Vario — essential for June', badge: 'buy' },
-        { name: 'Water filter', note: 'Sawyer Squeeze or BeFree — trail standard', badge: 'buy' },
-        { name: 'Collapsible reservoir 2L', note: 'Platypus or CNOC — for east-side 17-mile dry carry', badge: 'buy' },
-        { name: 'Bear canister (BV500)', note: 'Required entire TRT. Rent from TRTA (775) 298-4485', badge: 'buy' },
-        { name: 'Microspikes (Kahtoola)', note: 'For Relay Peak and Desolation — June snow still possible', badge: 'buy' },
-        { name: 'Low-cut trail gaiters', note: 'Keeps snow slush out of shoes', badge: 'buy' },
-        { name: 'Garmin inReach Mini (rent/buy)', note: 'Solo hiking on early-season terrain — highly recommended', badge: 'buy' },
-      ]
-    },
-    {
-      category: 'Navigation',
-      items: [
-        { name: 'FarOut TRT app (~$15)', note: 'Download offline maps before leaving. Essential for water sources.', badge: 'req' },
-        { name: 'Paper topo map backup', note: 'National Geographic TRT map or free TRTA PDF maps', badge: null },
-        { name: 'Phone dry bag / mount', note: 'Protect primary nav device', badge: null },
-      ]
-    },
-    {
-      category: 'Clothing — June Specific',
-      items: [
-        { name: 'Trail running shoes / light hikers', note: 'GTX waterproof worth it for June slush', badge: 'june' },
-        { name: 'Hiking socks × 4 pairs', note: 'Darn Tough or Smartwool merino — extra pairs for wet feet', badge: null },
-        { name: 'Moisture-wicking base layer top + bottom', note: 'Merino preferred for 14-day odor management', badge: null },
-        { name: 'Sun hoodie UPF 50+', note: 'Exposed ridgelines + bug protection', badge: null },
-        { name: 'Hiking shorts or convertible pants', note: 'Convertible good for cold mornings', badge: null },
-        { name: 'Mid-layer fleece or light down jacket', note: 'Needed at altitude in June — cold after sunset', badge: 'june' },
-        { name: 'Hardshell rain jacket', note: 'Afternoon thunderstorms. Do not skip.', badge: 'june' },
-        { name: 'Rain pants / wind pants', note: 'For wet snow and cold ridge crossings', badge: 'june' },
-        { name: 'Beanie + light gloves', note: 'Cold morning starts above 9,000 ft', badge: 'june' },
-        { name: 'Sun hat with brim', note: 'High-altitude UV is brutal', badge: null },
-      ]
-    },
-    {
-      category: 'Water',
-      items: [
-        { name: 'Primary water bottles × 2 (1L each)', note: 'Smartwater bottles compatible with Sawyer', badge: null },
-        { name: 'Electrolyte tabs (LMNT or Nuun)', note: 'Important at altitude during long carries', badge: null },
-      ]
-    },
-    {
-      category: 'Safety & Health',
-      items: [
-        { name: 'First aid kit', note: 'Leukotape, ibuprofen, antihistamine, moleskin, ace bandage, SAM splint', badge: null },
-        { name: 'Sunscreen SPF 50+ (plenty)', note: 'High altitude = brutal UV. Bring 2–3 tubes.', badge: null },
-        { name: 'Bug head net', note: 'June mosquitoes after snowmelt are legendary — weighs 1 oz', badge: 'june' },
-        { name: 'Picaridin repellent + permethrin spray', note: 'Treat clothing 24–48 hrs before trip', badge: 'june' },
-        { name: 'Headlamp + spare batteries', note: 'Black Diamond Spot or Petzl Actik', badge: null },
-        { name: 'Trowel + WAG bags', note: 'LNT — WAG bags for snowy areas where holes can\'t be dug', badge: null },
-        { name: 'Desolation Wilderness permit (printed)', note: 'Print within 14 days of June 19 entry', badge: 'req' },
-        { name: 'California Campfire Permit (printed)', note: 'Free — readyforwildfire.org', badge: 'req' },
-      ]
-    },
-    {
-      category: 'Power & Electronics',
-      items: [
-        { name: 'Power bank 20,000 mAh', note: 'Phone is primary nav — size for 5+ days between charges', badge: null },
-        { name: 'Charging cables (USB-C etc.)', note: 'Pack in a small dry bag', badge: null },
-        { name: 'Satellite communicator charged', note: 'inReach or similar — set check-in schedule before leaving', badge: null },
-      ]
-    },
-    {
-      category: 'Camp & Food',
-      items: [
-        { name: 'Long-handled titanium spork', note: '0.6 oz', badge: null },
-        { name: 'Lighter × 2', note: 'One backup', badge: null },
-        { name: 'Stuff sack / pot cozy', note: 'Keeps food warm', badge: null },
-        { name: 'Biodegradable soap + small towel', note: 'Keep minimal', badge: null },
-        { name: 'Toothbrush + toothpaste', note: null, badge: null },
-        { name: 'Pack rain cover or dry bags', note: 'Afternoon thunderstorms', badge: null },
-      ]
-    },
-    {
-      category: 'Field Repair & Tools',
-      items: [
-        { name: 'Duct tape (wrap 6ft around water bottle)', note: 'Tent pole repairs, blister padding, gear fixes — takes no space this way', badge: null },
-        { name: '550 paracord (25–50 ft)', note: 'Bear hang backup, tent guylines, gear lashing, clothesline in SLT', badge: null },
-        { name: 'Knife / multi-tool', note: 'Folding knife or Leatherman Skeletool — food prep, first aid, field repairs', badge: null },
-      ]
-    }
-  ];
-
-  function buildGear() {
-    const container = document.getElementById('gear-container');
-    const saved = JSON.parse(localStorage.getItem('trt-gear') || '{}');
-    let totalItems = 0;
-
-    gearData.forEach((cat, ci) => {
-      totalItems += cat.items.length;
-      const badgeHtml = (b) => {
-        if (!b) return '';
-        const labels = { buy: 'buy', june: 'June', req: 'required' };
-        return `<span class="gear-badge gear-badge-${b}">${labels[b]}</span>`;
-      };
-
-      const itemsHtml = cat.items.map((item, ii) => {
-        const key = `${ci}-${ii}`;
-        const checked = saved[key] ? 'checked' : '';
-        return `
-          <div class="gear-item ${checked}" onclick="toggleGear(this,'${key}')" data-key="${key}">
-            <div class="gear-checkbox"><span class="gear-checkbox-tick">✓</span></div>
-            <div class="gear-item-content">
-              <div class="gear-item-name">${item.name}${badgeHtml(item.badge)}</div>
-              ${item.note ? `<div class="gear-item-note">${item.note}</div>` : ''}
-            </div>
+    const itemsHtml = cat.items.map((item, j) => {
+      const key = `${cat.category}-${j}`;
+      const checked = saved[key] ? 'checked' : '';
+      const badge = item.badge ? `<span class="gear-badge ${item.badge}">${item.badge}</span>` : '';
+      return `
+        <div class="gear-item ${checked}" onclick="toggleGear(this,'${key}')" data-key="${key}">
+          <div class="gear-checkbox"><span class="gear-checkbox-tick">✓</span></div>
+          <div class="gear-item-content">
+            <div class="gear-item-name">${item.name}</div>
+            ${item.note ? `<div class="gear-item-note">${item.note}</div>` : ''}
           </div>
-        `;
-      }).join('');
-
-      container.innerHTML += `
-        <div class="gear-category">
-          <div class="gear-cat-header">
-            <div class="gear-cat-title">${cat.category}</div>
-            <div class="gear-cat-count">${cat.items.length} items</div>
-          </div>
-          <div class="gear-items">${itemsHtml}</div>
+          ${badge}
         </div>
       `;
-    });
+    }).join('');
 
-    updateGearProgress();
-  }
+    div.innerHTML = `
+      <div class="gear-cat-header">
+        <div class="gear-cat-title">${cat.category}</div>
+        <div class="gear-cat-count">${cat.items.length} items</div>
+      </div>
+      <div class="gear-items">${itemsHtml}</div>
+    `;
+    container.appendChild(div);
+  });
 
-  function toggleGear(el, key) {
-    el.classList.toggle('checked');
-    const saved = JSON.parse(localStorage.getItem('trt-gear') || '{}');
-    if (el.classList.contains('checked')) { saved[key] = true; } else { delete saved[key]; }
-    localStorage.setItem('trt-gear', JSON.stringify(saved));
-    updateGearProgress();
-  }
+  updateGearProgress();
+}
 
-  function updateGearProgress() {
-    const all = document.querySelectorAll('.gear-item');
-    const checked = document.querySelectorAll('.gear-item.checked');
-    const pct = all.length ? (checked.length / all.length * 100) : 0;
-    document.getElementById('gear-progress-bar').style.width = pct + '%';
-    document.getElementById('gear-progress-label').textContent = `${checked.length} of ${all.length} items packed`;
-  }
+function toggleGear(el, key) {
+  el.classList.toggle('checked');
+  const saved = JSON.parse(localStorage.getItem('trt-2026-gear') || '{}');
+  if (el.classList.contains('checked')) { saved[key] = true; } else { delete saved[key]; }
+  localStorage.setItem('trt-2026-gear', JSON.stringify(saved));
+  updateGearProgress();
+}
 
-  function resetGear() {
-    localStorage.removeItem('trt-gear');
-    document.querySelectorAll('.gear-item').forEach(el => el.classList.remove('checked'));
-    updateGearProgress();
-  }
+function updateGearProgress() {
+  const all = document.querySelectorAll('.gear-item');
+  const checked = document.querySelectorAll('.gear-item.checked');
+  const pct = all.length ? (checked.length / all.length * 100) : 0;
+  document.getElementById('gear-progress-bar').style.width = pct + '%';
+  document.getElementById('gear-progress-label').textContent = `${checked.length} of ${all.length} items packed`;
+}
 
-  // ---- INIT ----
-  buildItinerary();
-  buildGear();
+function resetGear() {
+  if (!confirm('Reset all checkboxes?')) return;
+  localStorage.removeItem('trt-2026-gear');
+  document.querySelectorAll('.gear-item').forEach(el => el.classList.remove('checked'));
+  updateGearProgress();
+}
+
+// ---- TABS ----
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(`tab-${id}`).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ---- INIT ----
+buildItinerary();
+buildGear();
 </script>
 </body>
 </html>
