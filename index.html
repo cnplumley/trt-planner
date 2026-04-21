@@ -611,11 +611,11 @@ body {
       <div class="hero-stat-label">Miles</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-val">Jun 14</div>
+      <div class="hero-stat-val">Jun 11</div>
       <div class="hero-stat-label">Start</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-val">Jun 20</div>
+      <div class="hero-stat-val">Jun 17</div>
       <div class="hero-stat-label">Finish</div>
     </div>
     <div class="hero-stat">
@@ -655,12 +655,12 @@ body {
     <div class="permit-card">
       <div class="permit-card-title">Desolation Wilderness Permit</div>
       <div class="permit-row"><span class="permit-key">Type</span><span class="permit-val">Standard Overnight</span></div>
-      <div class="permit-row"><span class="permit-key">Entry Date</span><span class="permit-val highlight">June 14, 2026</span></div>
+      <div class="permit-row"><span class="permit-key">Entry Date</span><span class="permit-val highlight">June 11, 2026</span></div>
       <div class="permit-row"><span class="permit-key">Entry Trailhead</span><span class="permit-val">Echo Lake</span></div>
       <div class="permit-row"><span class="permit-key">Exit Trailhead</span><span class="permit-val">Richardson Lake</span></div>
       <div class="permit-row"><span class="permit-key">First Night Zone</span><span class="permit-val highlight">Zone 29 — Gilmore Lake</span></div>
       <div class="permit-row"><span class="permit-key">Party Size</span><span class="permit-val">3 people</span></div>
-      <div class="permit-row"><span class="permit-key">Nights in DW</span><span class="permit-val">3 nights (Jun 14–16)</span></div>
+      <div class="permit-row"><span class="permit-key">Nights in DW</span><span class="permit-val">3 nights (Jun 11–13)</span></div>
       <div class="permit-row"><span class="permit-key">Book Via</span><span class="permit-val">recreation.gov #233261</span></div>
     </div>
     <div class="permit-card">
@@ -690,7 +690,7 @@ body {
     <div class="friend-card friend-a">
       <div class="friend-name">Friend A</div>
       <div class="friend-days">4 Days &nbsp;·&nbsp; Desolation Wilderness</div>
-      <div class="friend-detail"><strong>Dates</strong>June 14–17</div>
+      <div class="friend-detail"><strong>Dates</strong>June 11–14</div>
       <div class="friend-detail"><strong>Joins At</strong>Echo Lake Trailhead</div>
       <div class="friend-detail"><strong>Exits At</strong>Barker Pass Trailhead</div>
       <div class="friend-detail"><strong>Section</strong>Echo Lake → Gilmore → Dicks Lake → Fontanillis → Barker Pass</div>
@@ -701,7 +701,7 @@ body {
     <div class="friend-card friend-b">
       <div class="friend-name">Friend B</div>
       <div class="friend-days">3 Days &nbsp;·&nbsp; Barker Pass → Tahoe City</div>
-      <div class="friend-detail"><strong>Dates</strong>June 18–20</div>
+      <div class="friend-detail"><strong>Dates</strong>June 15–17</div>
       <div class="friend-detail"><strong>Joins At</strong>Barker Pass Trailhead (drive up Blackwood Canyon Rd)</div>
       <div class="friend-detail"><strong>Exits At</strong>Tahoe City (Hwy 89 / 64 Acres Park)</div>
       <div class="friend-detail"><strong>Section</strong>Barker Pass → Twin Peaks → Ward Canyon → Page Meadows → Tahoe City</div>
@@ -732,21 +732,21 @@ body {
 // ---- DATA ----
 const DAYS = [
   {
-    num: 1, date: 'Sat Jun 14', title: 'Echo Lake → Gilmore Lake',
+    num: 1, date: 'Wed Jun 11', title: 'Echo Lake → Gilmore Lake',
     type: 'desolation', miles: 11, gain: 1800, camp: 'Gilmore Lake (Zone 29)',
     friends: 'Friend A joins',
     water: 'Echo Lakes, Heather Lake, Susie Lake, Gilmore Lake',
     notes: [
       { text: 'Meet Friend A at Echo Lake Chalet parking lot — early start recommended', type: 'highlight' },
       { text: 'Take the water taxi across Echo Lakes — saves 1.5 miles and is a great start', type: '' },
-      { text: 'Enter Desolation Wilderness — carry printed permit, entry date June 14', type: 'warning' },
+      { text: 'Enter Desolation Wilderness — carry printed permit, entry date June 11', type: 'warning' },
       { text: 'Lake Aloha: NO camping in Zone 33 — spectacular but pass through only', type: 'warning' },
       { text: 'Gilmore Lake: flat granite spots, camp min 100 ft from shore', type: '' },
       { text: 'Note: Gilmore gets day hikers from Glen Alpine trailhead — arrive early for best sites', type: '' },
     ]
   },
   {
-    num: 2, date: 'Sun Jun 15', title: 'Gilmore Lake → Dicks Pass → Dicks Lake',
+    num: 2, date: 'Thu Jun 12', title: 'Gilmore Lake → Dicks Pass → Dicks Lake',
     type: 'desolation', miles: 8, gain: 1600, camp: 'Dicks Lake (Zone 23)',
     friends: 'Friend A',
     water: 'Gilmore Lake, Dicks Lake',
@@ -758,7 +758,7 @@ const DAYS = [
     ]
   },
   {
-    num: 3, date: 'Mon Jun 16', title: 'Dicks Lake → Fontanillis → Middle Velma → Exit DW',
+    num: 3, date: 'Fri Jun 13', title: 'Dicks Lake → Fontanillis → Middle Velma → Exit DW',
     type: 'desolation', miles: 9, gain: 800, camp: 'Fontanillis Lake or Middle Velma area',
     friends: 'Friend A',
     water: 'Fontanillis Lake, Velma Lakes',
@@ -770,7 +770,7 @@ const DAYS = [
     ]
   },
   {
-    num: 4, date: 'Tue Jun 17', title: 'Exit Desolation → Richardson Lake → Barker Pass',
+    num: 4, date: 'Sat Jun 14', title: 'Exit Desolation → Richardson Lake → Barker Pass',
     type: 'desolation', miles: 6, gain: 400, camp: '~0.75 miles north of Barker Pass Trailhead',
     friends: 'Friend A exits / Friend B arrives',
     water: 'Richardson Lake, Miller Creek',
@@ -783,7 +783,7 @@ const DAYS = [
     ]
   },
   {
-    num: 5, date: 'Wed Jun 18', title: 'Barker Pass → Twin Peaks Area',
+    num: 5, date: 'Sun Jun 15', title: 'Barker Pass → Twin Peaks Area',
     type: 'west', miles: 8, gain: 1200, camp: 'Twin Peaks area',
     friends: 'Friend B',
     water: 'North Fork Creek, seasonal streams',
@@ -795,7 +795,7 @@ const DAYS = [
     ]
   },
   {
-    num: 6, date: 'Thu Jun 19', title: 'Twin Peaks → Ward Canyon → Page Meadows',
+    num: 6, date: 'Mon Jun 16', title: 'Twin Peaks → Ward Canyon → Page Meadows',
     type: 'west', miles: 5, gain: 600, camp: 'Page Meadows',
     friends: 'Friend B',
     water: 'Ward Creek (reliable), small waterfall',
@@ -807,7 +807,7 @@ const DAYS = [
     ]
   },
   {
-    num: 7, date: 'Fri Jun 20', title: 'Page Meadows → Tahoe City',
+    num: 7, date: 'Tue Jun 17', title: 'Page Meadows → Tahoe City',
     type: 'west', miles: 4, gain: 0, camp: 'Finish — Tahoe City 🎉',
     friends: 'Friend B',
     water: 'Truckee River at finish',
