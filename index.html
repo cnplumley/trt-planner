@@ -498,6 +498,106 @@ nav {
 }
 .gear-reset:hover { color: var(--snow); border-color: rgba(200,219,191,0.3); }
 
+/* GEAR EDIT MODE */
+.gear-item { position: relative; }
+.gear-item-actions {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.gear-item:hover .gear-item-actions { display: flex; }
+.gear-action-btn {
+  background: none;
+  border: 1px solid rgba(200,219,191,0.15);
+  color: var(--granite);
+  font-size: 11px;
+  padding: 2px 7px;
+  cursor: pointer;
+  line-height: 1.6;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: .04em;
+}
+.gear-action-btn:hover { color: var(--snow); border-color: rgba(200,219,191,0.35); }
+.gear-action-btn.del:hover { color: #e8a878; border-color: rgba(200,90,40,0.4); }
+
+.gear-edit-row {
+  display: none;
+  padding: 10px 0 10px 28px;
+  gap: 8px;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(200,219,191,0.05);
+}
+.gear-edit-row.open { display: flex; }
+.gear-edit-inputs { display: flex; gap: 8px; flex-wrap: wrap; }
+.gear-edit-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(200,219,191,0.2);
+  color: var(--snow);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  padding: 6px 10px;
+  outline: none;
+  flex: 1;
+  min-width: 140px;
+}
+.gear-edit-input::placeholder { color: var(--granite); }
+.gear-edit-input:focus { border-color: rgba(200,219,191,0.4); }
+.gear-edit-save {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: rgba(74,103,65,0.3);
+  border: 1px solid rgba(122,158,110,0.3);
+  color: var(--sage-pale);
+  padding: 6px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.gear-edit-save:hover { background: rgba(74,103,65,0.5); }
+
+.gear-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--granite);
+  background: none;
+  border: 1px dashed rgba(200,219,191,0.15);
+  padding: 10px 14px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 4px;
+  text-align: left;
+}
+.gear-add-btn:hover { color: var(--snow); border-color: rgba(200,219,191,0.3); }
+
+.gear-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.gear-mode-toggle {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--granite);
+  background: none;
+  border: 1px solid rgba(200,219,191,0.15);
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.gear-mode-toggle.active { color: #e8c878; border-color: rgba(196,146,58,0.4); background: rgba(196,146,58,0.06); }
+.gear-mode-toggle:hover { color: var(--snow); border-color: rgba(200,219,191,0.3); }
+
 @media (max-width: 600px) {
   .hero { padding: 48px 20px 40px; }
   .hero-stats { flex-wrap: wrap; }
@@ -644,10 +744,13 @@ nav {
 <div id="tab-gear" class="tab-content">
   <div class="section">
     <h2 class="section-title">Gear Checklist</h2>
-    <p class="section-sub">Click items to check them off as you pack.</p>
-    <p class="gear-summary" id="gear-summary">0 of 0 items packed</p>
+    <p class="section-sub">Check off items as you pack. Toggle Edit Mode to rename items, edit notes, add, or remove.</p>
+    <div class="gear-toolbar">
+      <span class="gear-summary" id="gear-summary">0 of 0 items packed</span>
+      <button class="gear-mode-toggle" id="edit-toggle" onclick="toggleEditMode()">✏ Edit Mode</button>
+      <button class="gear-reset" onclick="resetGear()">Reset Checks</button>
+    </div>
     <div id="gear-container"></div>
-    <button class="gear-reset" onclick="resetGear()">Reset Checklist</button>
   </div>
 </div>
 
@@ -753,69 +856,271 @@ const GEAR = [
     { name: 'Sleeping bag / quilt', note: 'Katabatic Flex 15' },
     { name: 'Sleeping pad', note: '' },
     { name: 'Tent stakes (extra)', note: '' },
+    { name: 'Tent footprint / ground cloth', note: 'Optional but useful on granite' },
+    { name: 'Pillow (inflatable)', note: '' },
+    { name: 'Ear plugs', note: 'Gilmore Lake can be windy' },
   ]},
   { category: 'Pack & Carry', items: [
     { name: 'Osprey Kyte pack', note: '' },
     { name: 'Pack rain cover', note: '' },
     { name: 'Bear canister', note: 'Required in Desolation Wilderness' },
     { name: 'Dry bags / liners', note: '' },
+    { name: 'Stuff sacks', note: '' },
+    { name: 'Trash compactor bag (pack liner)', note: 'Cheap, light, waterproof' },
   ]},
   { category: 'Footwear', items: [
-    { name: 'Altra Lone Peak 9+ trail runners', note: 'Non-waterproof — bring gaiters for early June snow' },
-    { name: 'Camp sandals / crocs', note: '' },
-    { name: 'Microspikes', note: 'Dicks Pass may have snow in early June' },
-    { name: 'Merino wool socks ×3', note: '' },
-    { name: 'Gaiters', note: '' },
+    { name: 'Altra Lone Peak 9+ trail runners', note: 'Non-waterproof — use gaiters for early June snow' },
+    { name: 'Camp sandals / Crocs', note: 'Worth every gram after a long day' },
+    { name: 'Microspikes', note: 'Dicks Pass likely has snow in early June' },
+    { name: 'Merino wool socks ×4', note: 'Extra pair for wet crossings' },
+    { name: 'Liner socks (blister prevention)', note: '' },
+    { name: 'Trail gaiters', note: '' },
   ]},
   { category: 'Clothing', items: [
     { name: 'Base layer top (merino)', note: '' },
     { name: 'Base layer bottom (merino)', note: '' },
     { name: 'Mid layer / fleece', note: '' },
     { name: 'Hardshell / rain jacket', note: '' },
-    { name: 'Down jacket', note: '' },
-    { name: 'Hiking pants / shorts', note: '' },
-    { name: 'Sun hat', note: '' },
+    { name: 'Down jacket', note: 'Cold mornings at elevation' },
+    { name: 'Hiking pants', note: '' },
+    { name: 'Hiking shorts', note: '' },
+    { name: 'Sun hoodie / UPF shirt', note: 'UV protection above treeline' },
+    { name: 'Sun hat (wide brim)', note: '' },
     { name: 'Warm hat / beanie', note: '' },
-    { name: 'Gloves', note: '' },
+    { name: 'Lightweight gloves', note: '' },
     { name: 'Buff / neck gaiter', note: '' },
+    { name: 'Rain pants', note: 'Optional but useful for wet morning bushwhacking' },
+    { name: 'Camp shorts / dry layer', note: '' },
   ]},
   { category: 'Navigation & Safety', items: [
-    { name: 'Gaia GPS app (downloaded offline)', note: '' },
-    { name: 'Paper permit (printed)', note: 'Required in Desolation' },
-    { name: 'Paper map (TRT West section)', note: '' },
+    { name: 'Gaia GPS app (downloaded offline maps)', note: 'Download TRT West section before leaving cell service' },
+    { name: 'Paper permit (printed)', note: 'Required in Desolation — carry on person' },
+    { name: 'Paper map (TRT West section)', note: 'TRTA map or National Geographic' },
+    { name: 'Compass', note: '' },
     { name: 'Headlamp + spare batteries', note: '' },
-    { name: 'First aid kit', note: '' },
+    { name: 'First aid kit', note: 'Include blister supplies, moleskin, SAM splint' },
     { name: 'Emergency whistle', note: '' },
-    { name: 'Personal locator beacon (PLB)', note: '' },
+    { name: 'Personal locator beacon (PLB / inReach)', note: '' },
+    { name: 'Emergency bivvy / space blanket', note: '' },
+    { name: 'Knife / multi-tool', note: '' },
+    { name: 'Duct tape (small roll)', note: 'Gear repair, hot spots on feet' },
+    { name: 'Lighter + waterproof matches', note: '' },
   ]},
   { category: 'Water & Food', items: [
     { name: 'Water filter (Sawyer Squeeze)', note: '' },
-    { name: 'Water bottles / hydration (3L capacity)', note: 'Carry full leaving Fontanillis — 8+ dry miles ahead' },
-    { name: 'Stove + fuel canister', note: '' },
+    { name: 'Backup purification tabs', note: 'For emergencies' },
+    { name: 'Water bottles (3L total capacity)', note: 'Carry full out of Fontanillis — 8+ dry miles to Richardson' },
+    { name: 'Collapsible water reservoir', note: 'For camp use and water carries' },
+    { name: 'Stove + fuel canister', note: '1 canister per 3 days recommended' },
+    { name: 'Windscreen for stove', note: '' },
     { name: 'Pot / cookset', note: '' },
-    { name: 'Bear canister food pack', note: '7 days — pack dense calories' },
+    { name: 'Bear canister (food + scented items)', note: '7 days — pack dense calories, aim for 1.5–1.8 lb/day' },
     { name: 'Spork / utensils', note: '' },
     { name: 'Camp mug', note: '' },
+    { name: 'Food bag / stuff sack (in canister)', note: '' },
+    { name: 'Coffee / electrolytes', note: '' },
   ]},
   { category: 'Hygiene & Leave No Trace', items: [
-    { name: 'Trowel (cat hole use)', note: '' },
-    { name: 'Waste bags (WAG bags)', note: '' },
+    { name: 'Trowel (cat hole use)', note: '200 ft from water, trail, camp' },
+    { name: 'Waste bags (WAG bags)', note: 'Required above treeline — Dicks Pass area' },
+    { name: 'Toilet paper (biodegradable)', note: 'Pack it out in DW' },
     { name: 'Hand sanitizer', note: '' },
-    { name: 'Toothbrush / toothpaste', note: '' },
-    { name: 'Biodegradable soap', note: '' },
-    { name: 'Sunscreen SPF 50+', note: 'High altitude — reapply often' },
+    { name: 'Toothbrush / toothpaste (biodegradable)', note: '' },
+    { name: 'Biodegradable soap', note: 'Use 200 ft from water' },
+    { name: 'Sunscreen SPF 50+', note: 'High altitude exposure — reapply every 2 hrs' },
     { name: 'Lip balm SPF', note: '' },
-    { name: 'Insect repellent (DEET)', note: 'Mosquitoes peak June near Velma / Fontanillis area' },
-    { name: 'Bug head net', note: '' },
+    { name: 'Insect repellent (DEET)', note: 'Mosquitoes peak in June — especially near Velma / Fontanillis' },
+    { name: 'Bug head net', note: 'Worth packing for camp at Richardson / Velma area' },
+    { name: 'Wet wipes', note: 'Daily hygiene between water sources' },
+    { name: 'Menstrual products / personal hygiene', note: '' },
+    { name: 'Prescription medications', note: '' },
+    { name: 'Ibuprofen / Tylenol', note: '' },
+    { name: 'Blister kit (moleskin, Leukotape)', note: 'Break in shoes before June 11' },
+  ]},
+  { category: 'Extras & Luxury', items: [
+    { name: 'Camp chair (ultralight)', note: 'e.g. Helinox Chair Zero' },
+    { name: 'Book / Kindle', note: '' },
+    { name: 'Playing cards', note: '' },
+    { name: 'Flask / celebratory drink', note: 'For summit of Dicks Pass' },
+    { name: 'Packable camp towel', note: 'Quick-dry microfiber' },
+    { name: 'Binoculars (compact)', note: 'Wildflower and wildlife viewing' },
   ]},
   { category: 'Electronics & Misc', items: [
     { name: 'Phone + charging cable', note: '' },
-    { name: 'Portable battery pack', note: '' },
+    { name: 'Portable battery pack', note: '20,000 mAh recommended for 7 days' },
+    { name: 'Solar panel (optional)', note: 'Clips to pack — useful on long sunny days' },
     { name: 'Trekking poles', note: '' },
-    { name: 'Sunglasses', note: '' },
+    { name: 'Sunglasses (polarized)', note: 'Essential on snow — Dicks Pass may have snow cover' },
     { name: 'Campfire permit (printed or digital)', note: 'Free — readyforwildfire.org' },
+    { name: 'Camera / GoPro', note: '' },
+    { name: 'Satellite communicator (Garmin inReach)', note: 'Backup comms in Desolation Wilderness' },
+    { name: 'Watch / altimeter', note: '' },
+    { name: 'Headphones / earbuds', note: 'For camp evenings' },
   ]},
 ];
+
+// ---- GEAR STATE ----
+let gearData = null;
+let editMode = false;
+
+function getGearData() {
+  if (gearData) return gearData;
+  const saved = localStorage.getItem('trt-gear-data');
+  if (saved) {
+    try { gearData = JSON.parse(saved); return gearData; } catch(e) {}
+  }
+  gearData = JSON.parse(JSON.stringify(GEAR));
+  return gearData;
+}
+
+function saveGearData() {
+  localStorage.setItem('trt-gear-data', JSON.stringify(gearData));
+}
+
+function getChecked() {
+  return JSON.parse(localStorage.getItem('trt-gear-checks') || '{}');
+}
+
+function saveChecked(obj) {
+  localStorage.setItem('trt-gear-checks', JSON.stringify(obj));
+}
+
+function toggleEditMode() {
+  editMode = !editMode;
+  const btn = document.getElementById('edit-toggle');
+  btn.classList.toggle('active', editMode);
+  btn.textContent = editMode ? '✓ Done Editing' : '✏ Edit Mode';
+  renderGear();
+}
+
+// ---- RENDER GEAR ----
+function renderGear() {
+  const data = getGearData();
+  const checked = getChecked();
+  const container = document.getElementById('gear-container');
+  let total = 0, checkedCount = 0;
+
+  container.innerHTML = data.map((cat, catIdx) => {
+    total += cat.items.length;
+    const itemsHtml = cat.items.map((item, itemIdx) => {
+      const key = catIdx + ':' + itemIdx;
+      const isChecked = !!checked[key];
+      if (isChecked) checkedCount++;
+      const safeName = (item.name||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+      const safeNote = (item.note||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+      return `
+        <div class="gear-item ${isChecked ? 'checked' : ''}" id="gi-${catIdx}-${itemIdx}">
+          <div class="gear-check" onclick="toggleGearCheck(${catIdx},${itemIdx})">${isChecked ? '✓' : ''}</div>
+          <span class="gear-name" onclick="${editMode ? '' : `toggleGearCheck(${catIdx},${itemIdx})`}">${item.name}</span>
+          ${item.note ? `<span class="gear-note" onclick="${editMode ? '' : `toggleGearCheck(${catIdx},${itemIdx})`}">${item.note}</span>` : ''}
+          ${editMode ? `
+            <div class="gear-item-actions">
+              <button class="gear-action-btn" onclick="openEdit(${catIdx},${itemIdx},event)">edit</button>
+              <button class="gear-action-btn del" onclick="deleteItem(${catIdx},${itemIdx})">✕</button>
+            </div>
+          ` : ''}
+        </div>
+        ${editMode ? `
+          <div class="gear-edit-row" id="edit-row-${catIdx}-${itemIdx}">
+            <div class="gear-edit-inputs">
+              <input class="gear-edit-input" id="edit-name-${catIdx}-${itemIdx}" value="${safeName}" placeholder="Item name" />
+              <input class="gear-edit-input" id="edit-note-${catIdx}-${itemIdx}" value="${safeNote}" placeholder="Note (optional)" />
+              <button class="gear-edit-save" onclick="saveItem(${catIdx},${itemIdx})">Save</button>
+            </div>
+          </div>
+        ` : ''}
+      `;
+    }).join('');
+
+    return `
+      <div class="gear-category">
+        <div class="gear-cat-title">${cat.category}</div>
+        ${itemsHtml}
+        ${editMode ? `<button class="gear-add-btn" onclick="addItem(${catIdx})">+ Add item to ${cat.category}</button>` : ''}
+      </div>
+    `;
+  }).join('');
+
+  updateGearSummary(checkedCount, total);
+}
+
+function toggleGearCheck(catIdx, itemIdx) {
+  if (editMode) return;
+  const checked = getChecked();
+  const key = catIdx + ':' + itemIdx;
+  if (checked[key]) delete checked[key];
+  else checked[key] = true;
+  saveChecked(checked);
+  renderGear();
+}
+
+function openEdit(catIdx, itemIdx, e) {
+  e.stopPropagation();
+  document.querySelectorAll('.gear-edit-row.open').forEach(r => r.classList.remove('open'));
+  const row = document.getElementById('edit-row-' + catIdx + '-' + itemIdx);
+  if (row) {
+    row.classList.add('open');
+    const inp = document.getElementById('edit-name-' + catIdx + '-' + itemIdx);
+    if (inp) inp.focus();
+  }
+}
+
+function saveItem(catIdx, itemIdx) {
+  const data = getGearData();
+  const nameEl = document.getElementById('edit-name-' + catIdx + '-' + itemIdx);
+  const noteEl = document.getElementById('edit-note-' + catIdx + '-' + itemIdx);
+  const name = nameEl ? nameEl.value.trim() : '';
+  const note = noteEl ? noteEl.value.trim() : '';
+  if (!name) return;
+  data[catIdx].items[itemIdx] = { name, note };
+  saveGearData();
+  renderGear();
+}
+
+function deleteItem(catIdx, itemIdx) {
+  if (!confirm('Remove this item?')) return;
+  const data = getGearData();
+  data[catIdx].items.splice(itemIdx, 1);
+  // Re-key checked state
+  const checked = getChecked();
+  const newChecked = {};
+  Object.keys(checked).forEach(k => {
+    const parts = k.split(':');
+    const ci = parseInt(parts[0]), ii = parseInt(parts[1]);
+    if (ci !== catIdx) { newChecked[k] = true; return; }
+    if (ii < itemIdx) newChecked[k] = true;
+    else if (ii > itemIdx) newChecked[ci + ':' + (ii-1)] = true;
+  });
+  saveChecked(newChecked);
+  saveGearData();
+  renderGear();
+}
+
+function addItem(catIdx) {
+  const data = getGearData();
+  data[catIdx].items.push({ name: 'New item', note: '' });
+  saveGearData();
+  renderGear();
+  const newIdx = data[catIdx].items.length - 1;
+  setTimeout(() => {
+    const row = document.getElementById('edit-row-' + catIdx + '-' + newIdx);
+    if (row) {
+      row.classList.add('open');
+      const inp = document.getElementById('edit-name-' + catIdx + '-' + newIdx);
+      if (inp) { inp.focus(); inp.select(); }
+    }
+  }, 60);
+}
+
+function updateGearSummary(c, t) {
+  document.getElementById('gear-summary').textContent = c + ' of ' + t + ' items packed';
+}
+
+function resetGear() {
+  if (!confirm('Reset all checkmarks? Your edits to item names will be kept.')) return;
+  localStorage.removeItem('trt-gear-checks');
+  renderGear();
+}
 
 // ---- RENDER DAYS ----
 function renderDays() {
